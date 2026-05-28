@@ -18,6 +18,7 @@ headers = {
     'x-rapidapi-host': 'sofascore.p.rapidapi.com',
     'User-Agent': 'Mozilla/5.0'
 }
+# ★ここを一旦 pageIndex=0 だけにしてシンプルに確認します
 params = {'teamId': '38', 'pageIndex': '0'}
 
 try:
@@ -25,24 +26,22 @@ try:
     response.raise_for_status()
     data = response.json()
 
-    # --- ここで中身を確認するためのデバッグログを出力します ---
-    print(f"DEBUG: APIから返ってきたキー一覧: {data.keys()}")
-    # もし events 以外のキーにデータが入っている場合を見つけるため
-    
-    events = data.get('events', [])
-    print(f"DEBUG: APIから取得したイベント総数: {len(events)}")
-    
-    if len(events) > 0:
-        print(f"DEBUG: 最初のイベントの内容: {events[0]}")
-    # ----------------------------------------------------
+    # ★ここが重要！何が返ってきているかログに出力します
+    print("--- APIから返ってきたデータの構造 ---")
+    print(json.dumps(data, indent=2, ensure_ascii=False)[:1000]) # 最初の1000文字だけ表示
+    print("---------------------------------")
 
-    now = time.time()
-    future_events = [e for e in events if e.get('startTimestamp', 0) > now]
+    # 構造の確認：eventsキーがあるかチェック
+    events = data.get('events', [])
+    
+    # ★フィルタリングのロジックが厳しすぎる可能性があるので、
+    # 一旦フィルタリングを外してデータをそのまま保存してみます（デバッグ用）
+    future_events = events 
 
     with open('data/schedule.json', 'w', encoding='utf-8') as f:
         json.dump({'events': future_events}, f, indent=4, ensure_ascii=False)
     
-    print(f"Successfully saved {len(future_events)} matches.")
+    print(f"Successfully saved {len(future_events)} events.")
 
 except Exception as e:
     print(f"Error occurred: {e}")
