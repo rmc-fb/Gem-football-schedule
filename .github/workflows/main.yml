@@ -1,30 +1,28 @@
-name: Update Schedule
+name: Update MLS Schedule
 on:
   schedule:
-    - cron: '0 0 * * *' # 毎日日本時間午前9時に自動実行
-  workflow_dispatch:     # 手動実行ボタン用
+    # 2週間に1回（月曜の0時）に実行
+    - cron: '0 0 */14 * *'
+  workflow_dispatch: # 手動実行も可能にする
 
 jobs:
   update-data:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v3
-      - name: Fetch and Save Data
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Fetch and Filter Data
         env:
-          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
         run: |
-          # APIから直接データを取得
-          curl --request GET \
-            --url 'https://sofascore.p.rapidapi.com/tournaments/get-live-events?sport=football' \
-            --header 'x-rapidapi-host: sofascore.p.rapidapi.com' \
-            --header "x-rapidapi-key: $RAPIDAPI_KEY" \
-            -o schedule.json
+          python script/fetch_mls.py
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add schedule.json
-          git commit -m "Update match schedule" || exit 0
+          git config user.email "github-actions@github.com"
+          git add data/schedule.json
+          git commit -m "Update MLS schedule"
           git push
