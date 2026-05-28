@@ -9,33 +9,24 @@
     header { padding: 30px 20px 15px 20px; max-width: 500px; margin: 0 auto; }
     .site-title a { color: #ffffff; text-decoration: none; font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 12px; }
     .container { max-width: 500px; margin: 0 auto; padding: 0 16px 50px; }
-    
-    /* タブ周り */
     .category-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 16px; }
     .category-tabs button { background: #1a243d; border: none; color: #94a3b8; padding: 10px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; }
     .category-tabs button.active { background: #222f4d; color: #ffffff; border-bottom: 2px solid #e11d48; }
-    
     .gender-section { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 16px; }
     .gender-tabs { display: flex; background: #1a243d; padding: 4px; border-radius: 20px; }
     .gender-tabs button { background: none; border: none; color: #94a3b8; padding: 6px 16px; border-radius: 16px; cursor: pointer; font-size: 13px; font-weight: 600; }
     .gender-tabs button.active { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; }
-
     .league-section { display: flex; gap: 8px; margin-bottom: 16px; }
     .league-section select { flex: 1; background: #1a243d; border: 1px solid #2e3b5e; color: #fff; padding: 10px; border-radius: 8px; font-weight: 600; }
-
-    /* 試合カード */
     .match-card { background: #1a243d; border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; display: flex; align-items: center; font-size: 13px; }
     .match-time { font-weight: bold; margin-right: 10px; }
-    .badge { background: #d97706; padding: 2px 6px; border-radius: 4px; font-size: 9px; margin-right: 10px; }
     .match-teams { flex: 1; display: flex; gap: 6px; }
   </style>
 </head>
 <body>
-
 <header>
   <h1 class="site-title"><a href="https://rmc-fb.github.io/Gem-football-schedule">⚽ OVERSEAS FOOTBALL SCHEDULE</a></h1>
 </header>
-
 <div class="container">
   <div class="category-tabs" id="tabs">
     <button onclick="updateState('europe')">🌏 欧州</button>
@@ -45,34 +36,29 @@
     <button onclick="updateState('america')">🌏 北米</button>
     <button onclick="updateState('youth')">🌱 ユース</button>
   </div>
-
   <div class="gender-section" id="gender-ui">
     <div class="gender-tabs">
       <button id="men" class="active" onclick="setGender('men')">♂ 男子</button>
       <button id="women" onclick="setGender('women')">♀ 女子</button>
     </div>
   </div>
-
   <div class="league-section" id="league-ui">
     <select id="league-select" onchange="render()">
       <option value="all">🏟️ 全リーグ</option>
       <option value="premier">プレミアリーグ</option>
     </select>
   </div>
-
   <div id="display-area"></div>
 </div>
 
 <script>
   let state = { tab: 'europe', gender: 'men', league: 'all' };
-  let loadedMatches = []; // 外部データ格納用
+  let loadedMatches = [];
 
   const matches = [
-    { tab: 'europe', gender: 'men', league: 'premier', isJapan: false, home: 'クリスタルパレス', away: 'ラージョ', time: '28:00' },
-    { tab: 'japan', gender: 'men', league: 'j1', isJapan: true, home: '川崎F', away: '横浜FM', time: '19:00' }
+    { tab: 'europe', gender: 'men', league: 'premier', isJapan: false, home: 'クリスタルパレス', away: 'ラージョ', time: '28:00' }
   ];
 
-  // 外部JSONデータを取得する関数
   async function fetchExternalMatches() {
     try {
       const response = await fetch('data/schedule.json');
@@ -85,8 +71,7 @@
         time: new Date(e.startTimestamp * 1000).toLocaleDateString('ja-JP', {month:'numeric', day:'numeric'})
       }));
     } catch (e) {
-      console.error("北米データの読み込みに失敗しました", e);
-      loadedMatches = [];
+      console.log("北米データ読み込み失敗", e);
     }
   }
 
@@ -94,7 +79,6 @@
     state.tab = tab;
     document.getElementById('gender-ui').style.display = (tab === 'mideast') ? 'none' : 'flex';
     document.getElementById('league-ui').style.display = (['match', 'mideast', 'youth'].includes(tab)) ? 'none' : 'flex';
-    
     document.querySelectorAll('.category-tabs button').forEach((b, i) => {
       b.classList.toggle('active', ['europe','japan','match','mideast','america','youth'][i] === tab);
     });
@@ -104,4 +88,24 @@
   function setGender(g) {
     state.gender = g;
     document.getElementById('men').classList.toggle('active', g === 'men');
-    document.getElementById('women').classList.toggle('active
+    document.getElementById('women').classList.toggle('active', g === 'women');
+    render();
+  }
+
+  async function render() {
+    const area = document.getElementById('display-area');
+    if (state.tab === 'america' && loadedMatches.length === 0) {
+      await fetchExternalMatches();
+    }
+    let filtered = (state.tab === 'america') ? loadedMatches : matches.filter(m => m.tab === state.tab && m.gender === state.gender);
+    area.innerHTML = filtered.map(m => `
+      <div class="match-card">
+        <span class="match-time">${m.time}</span>
+        <div class="match-teams">${m.home} vs ${m.away}</div>
+      </div>
+    `).join('') || '<p style="text-align:center; color:#64748b;">試合がありません</p>';
+  }
+  updateState('europe');
+</script>
+</body>
+</html>
