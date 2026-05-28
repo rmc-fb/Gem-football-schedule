@@ -1,8 +1,8 @@
 name: Update Schedule
 on:
   schedule:
-    - cron: '0 0 * * *' # 毎日自動更新
-  workflow_dispatch:     # 手動実行ボタン用
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   update-data:
@@ -15,11 +15,11 @@ jobs:
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: |
-          # APIから直接データを取得
-          curl -L -f -o schedule.json \
-          -G "https://sofascore5.p.rapidapi.com/api/v1/unique-tournament/242/season/86668/events" \
-          -H "x-rapidapi-key: $RAPIDAPI_KEY" \
-          -H "x-rapidapi-host: sofascore5.p.rapidapi.com"
+          curl --request GET \
+            --url 'https://sofascore.p.rapidapi.com/tournaments/get-scheduled-events?categoryId=1' \
+            --header 'x-rapidapi-host: sofascore.p.rapidapi.com' \
+            --header "x-rapidapi-key: $RAPIDAPI_KEY" \
+            -o schedule.json
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
