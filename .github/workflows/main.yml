@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Fetch and Save Data
         run: |
-          curl -f -o schedule.json "https://api.apify.com/v2/datasets/MLNKE6KYAUDVA0QRM/items?token=${{ secrets.APIFY_TOKEN }}"
+          curl -f -o debug.json "https://api.apify.com/v2/datasets/MLNKE6KYAUDVA0QRM?token=${{ secrets.APIFY_TOKEN }}"
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
