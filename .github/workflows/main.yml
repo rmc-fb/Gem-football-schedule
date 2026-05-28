@@ -14,11 +14,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-      - name: Fetch and Filter Data
+    　 - name: Fetch and Filter Data
         env:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
-          python script/fetch_mls.py
+          python fetch_mls.py
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
