@@ -65,16 +65,33 @@
 
 <script>
   let state = { tab: 'europe', gender: 'men', league: 'all' };
+  let loadedMatches = []; // 外部データ格納用
 
-  // データ構造のサンプル
   const matches = [
     { tab: 'europe', gender: 'men', league: 'premier', isJapan: false, home: 'クリスタルパレス', away: 'ラージョ', time: '28:00' },
     { tab: 'japan', gender: 'men', league: 'j1', isJapan: true, home: '川崎F', away: '横浜FM', time: '19:00' }
   ];
 
+  // 外部JSONデータを取得する関数
+  async function fetchExternalMatches() {
+    try {
+      const response = await fetch('data/schedule.json');
+      const data = await response.json();
+      loadedMatches = data.events.map(e => ({
+        tab: 'america',
+        gender: 'men',
+        home: e.homeTeam.shortName,
+        away: e.awayTeam.shortName,
+        time: new Date(e.startTimestamp * 1000).toLocaleDateString('ja-JP', {month:'numeric', day:'numeric'})
+      }));
+    } catch (e) {
+      console.error("北米データの読み込みに失敗しました", e);
+      loadedMatches = [];
+    }
+  }
+
   function updateState(tab) {
     state.tab = tab;
-    // 中東は男女タブ不要、代表/ユース/中東はリーグ不要
     document.getElementById('gender-ui').style.display = (tab === 'mideast') ? 'none' : 'flex';
     document.getElementById('league-ui').style.display = (['match', 'mideast', 'youth'].includes(tab)) ? 'none' : 'flex';
     
@@ -87,25 +104,4 @@
   function setGender(g) {
     state.gender = g;
     document.getElementById('men').classList.toggle('active', g === 'men');
-    document.getElementById('women').classList.toggle('active', g === 'women');
-    render();
-  }
-
-  function render() {
-    const area = document.getElementById('display-area');
-    let filtered = matches.filter(m => m.tab === state.tab && m.gender === state.gender);
-    if (state.tab === 'japan') filtered = filtered.filter(m => m.isJapan);
-    if (state.league !== 'all') filtered = filtered.filter(m => m.league === state.league);
-
-    area.innerHTML = filtered.map(m => `
-      <div class="match-card">
-        <span class="match-time">${m.time}</span>
-        <div class="match-teams">${m.home} vs ${m.away}</div>
-      </div>
-    `).join('') || '<p style="text-align:center; color:#64748b;">試合がありません</p>';
-  }
-
-  updateState('europe');
-</script>
-</body>
-</html>
+    document.getElementById('women').classList.toggle('active
