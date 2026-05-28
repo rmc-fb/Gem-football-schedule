@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OVERSEAS FOOTBALL SCHEDULE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>⚽ OVERSEAS FOOTBALL SCHEDULE</h1>
+            <p class="subtitle">海外サッカー 試合日程 — 日本人選手追跡</p>
+            <div class="update-time">
+                更新: <strong id="update-date">—</strong>
+                <span class="auto-notice">毎日 07:00 JST 自動取得</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="filter-section">
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="europe">🌍 欧州日程</button>
+                <button class="tab-btn" data-tab="japanese">🇯🇵 日本人日程</button>
+                <button class="tab-btn" data-tab="national">🏆 代表戦日程</button>
+                <button class="tab-btn" data-tab="mideast">🕌 中東日程</button>
+                <button class="tab-btn" data-tab="north-america">🌎 北米日程</button>
+                <button class="tab-btn" data-tab="youth">🌱 ユース代表</button>
+            </div>
+
+            <div class="controls-container">
+                <div class="control-group">
+                    <span class="control-label">カテゴリ</span>
+                    <div class="radio-buttons">
+                        <label class="radio-label">
+                            <input type="radio" name="category" value="mens" checked>
+                            <span>♂ 男子</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="category" value="womens">
+                            <span>♀ 女子</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <span class="control-label">リーグ</span>
+                    <div class="select-wrapper">
+                        <select id="league-select">
+                            <option value="all">🏟 全リーグ</option>
+                        </select>
+                    </div>
+                    <button id="reset-btn" class="reset-btn">リセット</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div id="match-list" class="match-list">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>データを読み込み中...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p class="copyright">&copy; 2026 海外サッカー日程 | データは参考情報です。正確な日程は各クラブ公式サイトでご確認ください。</p>
+            <p class="credits">Powered by football-data.org + GitHub Actions + GitHub Pages</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
