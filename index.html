@@ -8,9 +8,10 @@
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; background-color: #111625; color: #ffffff; }
     header { padding: 30px 20px 15px 20px; max-width: 500px; margin: 0 auto; text-align: left; }
     
-    .site-title-container { display: flex; align-items: center; gap: 12px; }
-    .site-logo-img { width: 32px; height: 32px; object-fit: contain; }
-    .site-title { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: 0.5px; }
+    /* タイトル周りの調整（1行に収める） */
+    .site-title-container { display: flex; align-items: center; gap: 10px; }
+    .site-logo-img { width: 26px; height: 26px; fill: #ffffff; flex-shrink: 0; }
+    .site-title { margin: 0; font-size: 15px; font-weight: 800; letter-spacing: 0.5px; white-space: nowrap; }
     .site-title a { color: #ffffff; text-decoration: none; }
     .site-subtitle { margin: 6px 0 0 0; color: #64748b; font-size: 13px; font-weight: 500; }
     
@@ -22,7 +23,7 @@
     .category-tabs button.active { background: #1e2942; color: #ffffff; border-bottom: 2px solid #ef4444; border-radius: 4px 4px 0 0; }
     
     /* フィルタセクション共通 */
-    .filter-row { display: flex; align-items: center; margin-bottom: 14px; font-size: 13px; }
+    .filter-row { display: flex; align-items: center; margin-bottom: 14px; font-size: 13px; gap: 8px; }
     .filter-label { color: #475569; font-weight: 600; width: 65px; flex-shrink: 0; }
     
     /* 性別（カテゴリ）タブ */
@@ -30,8 +31,8 @@
     .gender-tabs button { background: none; border: none; color: #94a3b8; padding: 6px 16px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
     .gender-tabs button.active { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; }
     
-    /* リーグセレクト & リセット */
-    .league-controls { flex: 1; display: flex; gap: 8px; }
+    /* リーグセレクト & リセット（ラベル削除に伴う横幅最大化） */
+    .league-controls { flex: 1; display: flex; gap: 8px; width: 100%; margin-bottom: 14px; }
     .league-controls select { flex: 1; background: #161c2e; border: 1px solid #232d45; color: #fff; padding: 10px 12px; border-radius: 6px; font-weight: 600; font-size: 13px; outline: none; }
     .btn-reset { background: #161c2e; border: 1px solid #232d45; color: #475569; padding: 0 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
     
@@ -39,15 +40,11 @@
     .date-header { display: flex; justify-content: space-between; align-items: center; margin: 24px 0 8px 0; font-size: 14px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px; }
     .match-count { color: #475569; font-size: 12px; font-weight: 500; }
     
-    /* 試合カード（リスト感を強調したスリムデザイン） */
+    /* 試合カード */
     .match-card { background: #161c2e; border: 1px solid #1e263f; border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; display: flex; flex-direction: column; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: all 0.2s; }
-    
-    /* 日本人所属チームの強調枠 */
     .match-card.is-japan { border: 1.5px solid #3b82f6; background: #151b2b; }
     
-    /* 試合のメイン情報（1行） */
     .match-main { display: flex; align-items: center; flex-wrap: nowrap; overflow: hidden; width: 100%; }
-    
     .match-time { font-weight: 700; width: 45px; color: #ffffff; font-size: 14px; flex-shrink: 0; }
     .match-badge { font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-right: 12px; text-align: center; min-width: 45px; color: #ffffff; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     
@@ -57,7 +54,7 @@
     .team.away { justify-content: flex-start; flex: 1; text-align: left; }
     .vs { color: #475569; font-size: 11px; font-weight: 500; margin: 0 4px; flex-shrink: 0; }
     
-    /* 選手名タグ（右下） */
+    /* 選手名タグ */
     .player-tag-wrapper { display: flex; justify-content: flex-end; width: 100%; margin-top: 6px; }
     .player-tag { background: rgba(59, 130, 246, 0.15); border: 1px solid #3b82f6; color: #60a5fa; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 12px; }
 
@@ -69,7 +66,9 @@
 
 <header>
   <div class="site-title-container">
-    <img src="image.png" alt="Soccer Ball" class="site-logo-img">
+    <svg class="site-logo-img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zM358.5 220.8l-40.4 124.3H193.9l-40.4-124.3 98.4-71.5 106.6 71.5zM224 53.6l76.7 54.4-69 50.1-68.9-50.1L224 53.6zM69.6 150.1l90.3 65.7-34.5 106.1-94.8-19.1C44.7 266 36.6 226.7 36.6 186.7c0-12.7 1-25 2.8-37.1l30.2.5zM83.8 387c22.5 32 52.8 57.6 88 74.3l-26.6-81.8-61.4 7.5zM340 379.5l-26.6 81.8c35.3-16.7 65.5-42.3 88-74.3l-61.4-7.5zM481.5 302.8l-94.8 19.1-34.5-106.1 90.3-65.7l30.2-.5c1.8 12.1 2.8 24.5 2.8 37.1 0 40.1-8.1 79.4-26 116.1z"/>
+    </svg>
     <h1 class="site-title"><a href="https://rmc-fb.github.io/Gem-football-schedule">OVERSEAS FOOTBALL SCHEDULE</a></h1>
   </div>
   <p class="site-subtitle">海外サッカー 試合日程 — 日本人選手追跡</p>
@@ -93,13 +92,10 @@
     </div>
   </div>
 
-  <div class="filter-row" id="league-ui">
-    <div class="filter-label">リーグ</div>
-    <div class="league-controls">
-      <select id="league-select" onchange="render()">
-        </select>
-      <button class="btn-reset" onclick="resetFilters()">リセット</button>
-    </div>
+  <div class="league-controls" id="league-ui">
+    <select id="league-select" onchange="render()">
+      </select>
+    <button class="btn-reset" onclick="resetFilters()">リセット</button>
   </div>
 
   <div id="display-area"></div>
@@ -114,51 +110,44 @@
   let state = { tab: 'europe', gender: 'men', league: 'all' };
   let loadedMatches = [];
 
-  // 各タブ・条件ごとのリーグ選択肢定義（全リーグの絵文字削除、日本語化）
+  // 各タブ・条件ごとのリーグ選択肢（全リーグ → リーグ検索 に変更）
   const leagueOptions = {
     europe: {
       men: [
-        { val: 'all', text: '全リーグ' }, { val: 'premier', text: 'プレミアリーグ' }, { val: 'laliga', text: 'ラ・リーガ' },
+        { val: 'all', text: 'リーグ検索' }, { val: 'premier', text: 'プレミアリーグ' }, { val: 'laliga', text: 'ラ・リーガ' },
         { val: 'bundes', text: 'ブンデスリーガ' }, { val: 'seriea', text: 'セリエA' }, { val: 'ligue1', text: 'リーグ・アン' },
         { val: 'eredivisie', text: 'エールディヴィジ' }, { val: 'belgium', text: 'ベルギーリーグ' }, { val: 'scottish', text: 'スコティッシュ' },
         { val: 'primeira', text: 'プリメイラリーガ' }, { val: 'championship', text: 'チャンピオンシップ' },
         { val: 'cl', text: 'チャンピオンズリーグ' }, { val: 'el', text: 'ヨーロッパリーグ' }, { val: 'ecl', text: 'カンファレンスリーグ' }
       ],
       women: [
-        { val: 'all', text: '全リーグ' }, { val: 'wsl', text: 'WSL' }, { val: 'w_bundes', text: '女子ブンデス' },
+        { val: 'all', text: 'リーグ検索' }, { val: 'wsl', text: 'WSL' }, { val: 'w_bundes', text: '女子ブンデス' },
         { val: 'w_cl', text: '女子CL' }, { val: 'w_d1', text: '女子D1' }
       ]
     },
     japan: {
-      men: [{ val: 'all', text: '全リーグ' }],
-      women: [{ val: 'all', text: '全リーグ' }]
+      men: [{ val: 'all', text: 'リーグ検索' }],
+      women: [{ val: 'all', text: 'リーグ検索' }]
     },
     mideast: [
-      { val: 'all', text: '全リーグ' }, { val: 'saudi', text: 'サウジリーグ' }, { val: 'uae', text: 'UAEリーグ' }, { val: 'qatar', text: 'カタールリーグ' }
+      { val: 'all', text: 'リーグ検索' }, { val: 'saudi', text: 'サウジリーグ' }, { val: 'uae', text: 'UAEリーグ' }, { val: 'qatar', text: 'カタールリーグ' }
     ],
     america: {
-      men: [{ val: 'all', text: '全リーグ' }, { val: 'mls', text: 'MLS' }],
-      women: [{ val: 'all', text: '全リーグ' }, { val: 'mls', text: 'MLS' }]
+      men: [{ val: 'all', text: 'リーグ検索' }, { val: 'mls', text: 'MLS' }],
+      women: [{ val: 'all', text: 'リーグ検索' }, { val: 'mls', text: 'MLS' }]
     }
   };
 
-  // テスト用データ（深夜時間のテスト用ダミーも含む）
   const matches = [
-    // 欧州男子
-    { tab: 'europe', gender: 'men', league: 'premier', kickoff: '2026-05-28T18:00:00', isJapan: true, playerName: '鎌田 大地', badge: 'プレミア', badgeColor: '#3b82f6', home: 'クリスタルパレス', away: 'ラージョ' }, // 2時間以上前なので消える想定
+    { tab: 'europe', gender: 'men', league: 'premier', kickoff: '2026-05-28T18:00:00', isJapan: true, playerName: '鎌田 大地', badge: 'プレミア', badgeColor: '#3b82f6', home: 'クリスタルパレス', away: 'ラージョ' },
     { tab: 'europe', gender: 'men', league: 'premier', kickoff: '2026-05-28T23:00:00', isJapan: true, playerName: '三笘 薫', badge: 'プレミア', badgeColor: '#3b82f6', home: 'ブライトン', away: 'チェルシー' },
-    { tab: 'europe', gender: 'men', league: 'laliga', kickoff: '2026-05-29T01:30:00', isJapan: false, badge: 'ラ・リーガ', badgeColor: '#ef4444', home: 'レアル・マドリード', away: 'バルセロナ' }, // 24時以降のテスト(25:30)
+    { tab: 'europe', gender: 'men', league: 'laliga', kickoff: '2026-05-29T01:30:00', isJapan: false, badge: 'ラ・リーガ', badgeColor: '#ef4444', home: 'レアル・マドリード', away: 'バルセロナ' },
     { tab: 'europe', gender: 'men', league: 'cl', kickoff: '2026-05-30T21:00:00', isJapan: false, badge: 'CL', badgeColor: '#1e3a8a', home: 'パリSG', away: 'アーセナル' },
-    // 欧州女子
     { tab: 'europe', gender: 'women', league: 'wsl', kickoff: '2026-05-29T02:00:00', isJapan: true, playerName: '長谷川 唯', badge: 'WSL', badgeColor: '#ec4899', home: 'マンチェスター・C', away: 'チェルシー' },
-    // 代表戦
     { tab: 'match', gender: 'men', kickoff: '2026-06-05T19:30:00', isJapan: false, badge: 'W杯予選', badgeColor: '#059669', home: '日本', away: 'オーストラリア' },
     { tab: 'match', gender: 'women', kickoff: '2026-06-06T15:00:00', isJapan: false, badge: '親善試合', badgeColor: '#10b981', home: 'なでしこジャパン', away: 'アメリカ女子' },
-    // 中東
     { tab: 'mideast', kickoff: '2026-05-29T03:00:00', league: 'saudi', badge: 'サウジ', badgeColor: '#047857', home: 'アル・ナスル', away: 'アル・ヒラル' },
-    // 北米
     { tab: 'america', gender: 'men', league: 'mls', kickoff: '2026-05-29T08:30:00', isJapan: true, playerName: '吉田 麻也', badge: 'MLS', badgeColor: '#0284c7', home: 'LAギャラクシー', away: 'インテル・マイマイ' },
-    // ユース
     { tab: 'youth', gender: 'men', kickoff: '2026-06-10T18:00:00', isJapan: false, badge: 'U-23', badgeColor: '#6d28d9', home: 'U-22日本', away: 'U-22韓国' }
   ];
 
@@ -166,20 +155,9 @@
     try {
       const response = await fetch('data/schedule.json');
       const data = await response.json();
-      
       loadedMatches = data.map(e => {
         const isoKickoff = e.date.replace(' ', 'T');
-        return {
-          tab: 'america',
-          gender: 'men', 
-          league: 'mls',
-          kickoff: isoKickoff,
-          isJapan: false, 
-          badge: 'MLS',
-          badgeColor: '#0284c7',
-          home: e.match.split(' vs ')[0] || 'Home',
-          away: e.match.split(' vs ')[1] || 'Away'
-        };
+        return { tab: 'america', gender: 'men', league: 'mls', kickoff: isoKickoff, isJapan: false, badge: 'MLS', badgeColor: '#0284c7', home: e.match.split(' vs ')[0] || 'Home', away: e.match.split(' vs ')[1] || 'Away' };
       });
     } catch (e) {
       console.log("外部データ未配置、または読み込みエラー");
@@ -201,9 +179,21 @@
     if (!select.value) { select.value = 'all'; state.league = 'all'; }
   }
 
-  function updateState(tab) {
+  // タブ切り替え（URLハッシュ対応＆デフォルト男子化）
+  function updateState(tab, updateHash = true) {
     state.tab = tab;
     
+    // URLを更新
+    if (updateHash) {
+      window.history.pushState(null, '', '#' + tab);
+    }
+
+    // タブ切り替え時は必ず男子をデフォルトにする
+    state.gender = 'men';
+    document.getElementById('men').classList.add('active');
+    document.getElementById('women').classList.remove('active');
+    
+    // UIの表示制御
     document.getElementById('gender-ui').style.display = (tab === 'mideast') ? 'none' : 'flex';
     document.getElementById('league-ui').style.display = (['match', 'youth'].includes(tab)) ? 'none' : 'flex';
     
@@ -231,34 +221,24 @@
     render();
   }
 
-  // --- 日付と時間のフォーマットロジック ---
-
-  // 深夜帯(0時〜5時)の試合は、表示上「前日」のグループにまとめるための調整関数
   function getAdjustedDate(dateIso) {
     const d = new Date(dateIso);
-    if (d.getHours() >= 0 && d.getHours() < 6) {
-      d.setDate(d.getDate() - 1);
-    }
+    if (d.getHours() >= 0 && d.getHours() < 6) { d.setDate(d.getDate() - 1); }
     return d;
   }
 
-  // 日付フォーマット (例: 26/5/26(水))
   function formatGroupDate(dateIso) {
     const d = getAdjustedDate(dateIso);
     const day = ['日', '月', '火', '水', '木', '金', '土'][d.getDay()];
-    const year = String(d.getFullYear()).slice(-2); // 下2桁
+    const year = String(d.getFullYear()).slice(-2);
     return `${year}/${d.getMonth() + 1}/${String(d.getDate()).padStart(2, '0')}(${day})`;
   }
 
-  // 時間フォーマット (0時〜5時台を24時〜29時表記に変換)
   function formatTime(dateIso) {
     const d = new Date(dateIso);
     let hours = d.getHours();
     const minutes = String(d.getMinutes()).padStart(2, '0');
-    
-    if (hours >= 0 && hours < 6) {
-      hours += 24;
-    }
+    if (hours >= 0 && hours < 6) { hours += 24; }
     return `${hours}:${minutes}`;
   }
 
@@ -273,17 +253,14 @@
     let allSource = [...matches, ...loadedMatches];
     const now = new Date();
 
-    // キックオフから2時間経過した試合を除外
     allSource = allSource.filter(m => {
       const kickoffTime = new Date(m.kickoff);
       const expiryTime = new Date(kickoffTime.getTime() + 2 * 60 * 60 * 1000);
       return now <= expiryTime; 
     });
 
-    // 実際のキックオフ時間で昇順ソート
     allSource.sort((a, b) => new Date(a.kickoff) - new Date(b.kickoff));
 
-    // フィルタリング
     let filtered = [];
     if (state.tab === 'japan') {
       filtered = allSource.filter(m => ['europe', 'america'].includes(m.tab) && m.gender === state.gender && m.isJapan === true);
@@ -297,7 +274,6 @@
       filtered = filtered.filter(m => m.league === state.league);
     }
 
-    // 表示用日付（深夜考慮）ごとにグループ化
     const groupedMatches = {};
     filtered.forEach(m => {
       const dateStr = formatGroupDate(m.kickoff);
@@ -315,29 +291,16 @@
 
     sortedDates.forEach(date => {
       const dayMatches = groupedMatches[date];
-      htmlOutput += `
-        <div class="date-header">
-          <span>${date}</span>
-          <span class="match-count">${dayMatches.length}試合</span>
-        </div>
-      `;
-
+      htmlOutput += `<div class="date-header"><span>${date}</span><span class="match-count">${dayMatches.length}試合</span></div>`;
       dayMatches.forEach(m => {
         const isJapanClass = m.isJapan ? 'is-japan' : '';
-        const playerTagHtml = (m.isJapan && m.playerName) 
-          ? `<div class="player-tag-wrapper"><span class="player-tag">${m.playerName}</span></div>` 
-          : '';
-
+        const playerTagHtml = (m.isJapan && m.playerName) ? `<div class="player-tag-wrapper"><span class="player-tag">${m.playerName}</span></div>` : '';
         htmlOutput += `
           <div class="match-card ${isJapanClass}">
             <div class="match-main">
               <div class="match-time">${formatTime(m.kickoff)}</div>
               <div class="match-badge" style="background-color: ${m.badgeColor}">${m.badge}</div>
-              <div class="match-teams">
-                <span class="team home">${m.home}</span>
-                <span class="vs">vs</span>
-                <span class="team away">${m.away}</span>
-              </div>
+              <div class="match-teams"><span class="team home">${m.home}</span><span class="vs">vs</span><span class="team away">${m.away}</span></div>
             </div>
             ${playerTagHtml}
           </div>
@@ -348,8 +311,22 @@
     area.innerHTML = htmlOutput;
   }
 
-  // 初回読み込み
-  updateState('europe');
+  // 初回読み込みとブラウザの「戻る/進む」対応（URLハッシュ処理）
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    const validTabs = ['europe', 'japan', 'match', 'mideast', 'america', 'youth'];
+    if (hash && validTabs.includes(hash)) {
+      updateState(hash, false);
+    } else {
+      updateState('europe', false);
+    }
+  });
+
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.replace('#', '');
+    const validTabs = ['europe', 'japan', 'match', 'mideast', 'america', 'youth'];
+    updateState(validTabs.includes(hash) ? hash : 'europe', false);
+  });
 </script>
 </body>
 </html>
