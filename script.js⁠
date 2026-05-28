@@ -1,0 +1,99 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const matchList = document.getElementById('match-list');
+    const updateDate = document.getElementById('update-date');
+
+    // 1. ヘッダーの更新日時を「今日の日付」にする
+    const today = new Date();
+    updateDate.textContent = today.toLocaleDateString('ja-JP', { month: '2-digit', day: '2-digit' }) + ' ' + today.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+
+    // 2. 本物っぽく見せるためのダミーデータ
+    const dummyData = {
+        'europe': [
+            { time: '21:00', league: 'プレミアリーグ', home: 'アーセナル', away: 'マンチェスター・C' },
+            { time: '23:30', league: 'ラ・リーガ', home: 'レアル・マドリード', away: 'バルセロナ' },
+            { time: '04:00', league: 'セリエA', home: 'インテル', away: 'ユヴェントス' }
+        ],
+        'japanese': [
+            { time: '20:00', league: 'プレミアリーグ', home: 'ブライトン (三笘)', away: 'リヴァプール (遠藤)' },
+            { time: '22:30', league: 'ブンデスリーガ', home: 'フライブルク (堂安)', away: 'バイエルン' },
+            { time: '01:00', league: 'リーグ・アン', home: 'モナコ (南野)', away: 'PSG' }
+        ],
+        'national': [
+            { time: '19:30', league: 'W杯予選', home: '日本代表', away: 'オーストラリア代表' }
+        ]
+    };
+
+    // 3. 試合データを画面に描画する関数
+    function renderMatches(tabId) {
+        matchList.innerHTML = ''; // 一旦中身を空にする
+
+        const matches = dummyData[tabId] || [];
+
+        // データがない場合の表示
+        if (matches.length === 0) {
+            matchList.innerHTML = `
+                <div style="text-align: center; padding: 60px 16px; color: var(--text-muted); background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px dashed var(--glass-border);">
+                    本日の試合予定はありません。
+                </div>`;
+            return;
+        }
+
+        // データがある場合はカードを作成して追加
+        matches.forEach(match => {
+            const card = document.createElement('div');
+            // JavaScriptから直接CSSのスタイルを当ててモダンなカードにする
+            card.style.cssText = `
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 12px;
+                padding: 16px 20px;
+                margin-bottom: 12px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: background 0.2s;
+            `;
+            
+            // ホバー時のエフェクト追加
+            card.onmouseover = () => card.style.background = 'rgba(255, 255, 255, 0.08)';
+            card.onmouseout = () => card.style.background = 'rgba(255, 255, 255, 0.03)';
+
+            card.innerHTML = `
+                <div style="font-size: 0.9rem; color: var(--accent-color); font-weight: 800; width: 60px;">${match.time}</div>
+                <div style="flex: 1; text-align: center; font-weight: 600; font-size: 1.05rem;">
+                    <span>${match.home}</span>
+                    <span style="margin: 0 16px; color: var(--text-muted); font-size: 0.85rem;">vs</span>
+                    <span>${match.away}</span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); width: 100px; text-align: right; background: rgba(0,0,0,0.3); padding: 4px 8px; border-radius: 6px;">${match.league}</div>
+            `;
+            matchList.appendChild(card);
+        });
+    }
+
+    // 4. 初期表示（欧州日程を表示）
+    renderMatches('europe');
+
+    // 5. タブをクリックしたときの動き
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // 色を塗るタブを切り替える
+            tabBtns.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+
+            // くるくるローディングを一旦表示する（本物っぽさの演出）
+            matchList.innerHTML = `
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>データを取得中...</p>
+                </div>`;
+
+            // 0.4秒後にデータを表示（API通信の待ち時間を擬似的に再現）
+            setTimeout(() => {
+                const tabId = e.target.getAttribute('data-tab');
+                renderMatches(tabId);
+            }, 400);
+        });
+    });
+});
