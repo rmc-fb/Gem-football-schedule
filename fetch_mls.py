@@ -14,21 +14,21 @@ if not api_key:
     sys.exit(1)
 api_key = api_key.strip() 
 
-# APIエンドポイント
-url = "https://api.sofascore.com/api/v1/tournaments/get-next-matches"
+# ★修正点：RapidAPIのゲートウェイURLに変更します
+url = "https://sofascore.p.rapidapi.com/api/v1/tournaments/get-next-matches"
 
-# ★ここが重要：User-Agentを追加してブラウザからのアクセスを装います
+# ★修正点：ヘッダーをRapidAPI用に合わせる
 headers = {
     'x-rapidapi-key': api_key,
-    'x-rapidapi-host': 'api.sofascore.com',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    'x-rapidapi-host': 'sofascore.p.rapidapi.com',
+    'User-Agent': 'Mozilla/5.0'
 }
 params = {'tournamentId': '242', 'seasonId': '86668'}
 
 try:
     response = requests.get(url, headers=headers, params=params)
     
-    # エラーの詳細を表示できるようにする
+    # デバッグ用にレスポンスを表示
     if response.status_code != 200:
         print(f"Status Code: {response.status_code}")
         print(f"Response Body: {response.text}")
