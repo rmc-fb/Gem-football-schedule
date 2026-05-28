@@ -21,6 +21,9 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
           python fetch_mls.py
+      # ここで現在のファイル一覧を確認（デバッグ用）
+      - name: Check files
+        run: ls -R
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
