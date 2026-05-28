@@ -10,75 +10,58 @@
     
     .site-title-container { display: flex; align-items: center; gap: 10px; }
     .site-logo-img { width: 26px; height: 26px; fill: #ffffff; flex-shrink: 0; }
-    .site-title { margin: 0; font-size: 15px; font-weight: 800; letter-spacing: 0.5px; white-space: nowrap; }
+    .site-title { margin: 0; font-size: 14px; font-weight: 800; white-space: nowrap; }
     .site-title a { color: #ffffff; text-decoration: none; }
+    .site-subtitle { margin: 6px 0 0 36px; color: #64748b; font-size: 12px; }
     
-    .site-subtitle { margin: 6px 0 0 36px; color: #64748b; font-size: 13px; font-weight: 500; }
+    .container { max-width: 500px; margin: 0 auto; padding: 0 16px 50px; }
     
-    .container { max-width: 500px; margin: 0 auto; padding: 0 16px 50px; box-sizing: border-box; }
+    .category-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 16px; }
+    .category-tabs button { background: #161c2e; border: none; color: #94a3b8; padding: 6px 4px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600; }
+    .category-tabs button.active { background: #1e2942; color: #ffffff; border-bottom: 2px solid #ef4444; }
     
-    .category-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
-    .category-tabs button { background: #161c2e; border: none; color: #94a3b8; padding: 12px 8px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 4px; transition: all 0.2s; }
-    .category-tabs button.active { background: #1e2942; color: #ffffff; border-bottom: 2px solid #ef4444; border-radius: 4px 4px 0 0; }
+    .filter-row { display: flex; align-items: center; margin-bottom: 12px; font-size: 12px; gap: 8px; }
+    .gender-tabs { display: flex; background: #161c2e; padding: 2px; border-radius: 4px; }
+    .gender-tabs button { background: none; border: none; color: #94a3b8; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 12px; font-weight: 600; }
+    .gender-tabs button.active { background: #ef4444; color: #fff; }
     
-    .filter-row { display: flex; align-items: center; margin-bottom: 14px; font-size: 13px; gap: 8px; }
-    .filter-label { color: #475569; font-weight: 600; width: 65px; flex-shrink: 0; }
+    .league-controls { display: flex; gap: 8px; margin-bottom: 12px; }
+    .league-controls select { flex: 1; background: #161c2e; border: 1px solid #232d45; color: #fff; padding: 6px; border-radius: 4px; font-size: 12px; }
+    .btn-reset { background: #161c2e; border: 1px solid #232d45; color: #475569; padding: 0 12px; border-radius: 4px; cursor: pointer; font-size: 12px; }
     
-    .gender-tabs { display: flex; background: #161c2e; padding: 3px; border-radius: 6px; }
-    .gender-tabs button { background: none; border: none; color: #94a3b8; padding: 6px 16px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
-    .gender-tabs button.active { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; }
+    .date-header { display: flex; justify-content: space-between; margin: 16px 0 6px 0; font-size: 12px; font-weight: 700; color: #ffffff; }
     
-    .league-controls { flex: 1; display: flex; gap: 8px; width: 100%; margin-bottom: 14px; }
-    .league-controls select { flex: 1; background: #161c2e; border: 1px solid #232d45; color: #fff; padding: 10px 12px; border-radius: 6px; font-weight: 600; font-size: 13px; outline: none; }
-    .btn-reset { background: #161c2e; border: 1px solid #232d45; color: #475569; padding: 0 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
+    .match-card { background: #161c2e; border: 1px solid #1e263f; border-radius: 4px; padding: 4px 8px; margin-bottom: 4px; display: flex; flex-direction: column; font-size: 11px; }
+    .match-card.is-japan { border: 1px solid #3b82f6; }
+    .match-main { display: flex; align-items: center; gap: 8px; }
+    .match-time { font-weight: 700; width: 35px; }
+    .match-badge { font-size: 9px; padding: 1px 4px; border-radius: 3px; background: #3b82f6; color: #fff; flex-shrink: 0; }
+    .match-teams { flex: 1; display: flex; justify-content: center; gap: 4px; font-weight: 600; }
     
-    .date-header { display: flex; justify-content: space-between; align-items: center; margin: 20px 0 8px 0; font-size: 13px; font-weight: 700; color: #ffffff; }
-    .match-count { color: #475569; font-size: 11px; font-weight: 500; }
-    
-    /* 試合カード（高さを4pxに詰める設定） */
-    .match-card { background: #161c2e; border: 1px solid #1e263f; border-radius: 6px; padding: 4px 8px; margin-bottom: 4px; display: flex; flex-direction: column; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
-    .match-card.is-japan { border: 1px solid #3b82f6; background: #151b2b; }
-    
-    .match-main { display: flex; align-items: center; font-size: 12px; }
-    .match-time { font-weight: 700; width: 40px; color: #ffffff; flex-shrink: 0; }
-    .match-badge { font-size: 9px; font-weight: 800; padding: 1px 4px; border-radius: 3px; margin-right: 8px; text-align: center; min-width: 35px; color: #ffffff; flex-shrink: 0; }
-    
-    .match-teams { flex: 1; display: flex; align-items: center; justify-content: center; font-weight: 600; gap: 4px; overflow: hidden; }
-    .team { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .team.home { flex: 1; text-align: right; }
-    .team.away { flex: 1; text-align: left; }
-    .vs { color: #475569; font-size: 10px; margin: 0 2px; flex-shrink: 0; }
-    
-    .player-tag-wrapper { display: flex; justify-content: flex-end; width: 100%; margin-top: 1px; }
-    .player-tag { background: rgba(59, 130, 246, 0.15); border: 1px solid #3b82f6; color: #60a5fa; font-size: 9px; font-weight: 700; padding: 0 6px; border-radius: 10px; }
-
-    footer { text-align: center; color: #475569; font-size: 11px; line-height: 1.6; margin-top: 40px; padding: 20px 0; border-top: 1px solid #161c2e; }
+    footer { text-align: center; color: #475569; font-size: 10px; margin-top: 40px; padding: 20px 0; border-top: 1px solid #161c2e; line-height: 1.5; }
   </style>
 </head>
 <body>
 
 <header>
   <div class="site-title-container">
-    <svg class="site-logo-img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-      <path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zM358.5 220.8l-40.4 124.3H193.9l-40.4-124.3 98.4-71.5 106.6 71.5zM224 53.6l76.7 54.4-69 50.1-68.9-50.1L224 53.6zM69.6 150.1l90.3 65.7-34.5 106.1-94.8-19.1C44.7 266 36.6 226.7 36.6 186.7c0-12.7 1-25 2.8-37.1l30.2.5zM83.8 387c22.5 32 52.8 57.6 88 74.3l-26.6-81.8-61.4 7.5zM340 379.5l-26.6 81.8c35.3-16.7 65.5-42.3 88-74.3l-61.4-7.5zM481.5 302.8l-94.8 19.1-34.5-106.1 90.3-65.7l30.2-.5c1.8 12.1 2.8 24.5 2.8 37.1 0 40.1-8.1 79.4-26 116.1z"/>
-    </svg>
-    <h1 class="site-title"><a href="https://rmc-fb.github.io/Gem-football-schedule">OVERSEAS FOOTBALL SCHEDULE</a></h1>
+    <svg class="site-logo-img" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zM358.5 220.8l-40.4 124.3H193.9l-40.4-124.3 98.4-71.5 106.6 71.5z"/></svg>
+    <h1 class="site-title"><a href="#">OVERSEAS FOOTBALL SCHEDULE</a></h1>
   </div>
   <p class="site-subtitle">海外サッカー 試合日程 — 日本人選手追跡</p>
 </header>
 
 <div class="container">
   <div class="category-tabs" id="tabs">
-    <button onclick="updateState('europe')">🌏 欧州日程</button>
-    <button onclick="updateState('japan')">🇯🇵 日本人日程</button>
-    <button onclick="updateState('match')">🏆 代表戦日程</button>
-    <button onclick="updateState('mideast')">🕌 中東日程</button>
-    <button onclick="updateState('america')">🌎 北米日程</button>
-    <button onclick="updateState('youth')">🌱 ユース代表</button>
+    <button onclick="updateState('europe')">🌏 欧州</button>
+    <button onclick="updateState('japan')">🇯🇵 日本人</button>
+    <button onclick="updateState('match')">🏆 代表</button>
+    <button onclick="updateState('mideast')">🕌 中東</button>
+    <button onclick="updateState('america')">🌎 北米</button>
+    <button onclick="updateState('youth')">🌱 ユース</button>
   </div>
 
   <div class="filter-row" id="gender-ui">
-    <div class="filter-label">カテゴリ</div>
     <div class="gender-tabs">
       <button id="men" class="active" onclick="setGender('men')">♂ 男子</button>
       <button id="women" onclick="setGender('women')">♀ 女子</button>
@@ -86,44 +69,28 @@
   </div>
 
   <div class="league-controls" id="league-ui">
-    <select id="league-select" onchange="render()"></select>
+    <select id="league-select" onchange="render()"><option value="all">リーグ検索</option></select>
     <button class="btn-reset" onclick="resetFilters()">リセット</button>
   </div>
 
   <div id="display-area"></div>
 
   <footer>
-    <p>© 2026 データは参考情報です。正確な日程は各クラブ公式サイトでご確認ください。<br>
-    Powered by Gemini + GitHub + Rapid API</p>
+    © 2026 データは参考情報です。正確な日程は各クラブ公式サイトでご確認ください。<br>
+    Powered by Gemini + GitHub + Rapid API
   </footer>
 </div>
 
 <script>
   let state = { tab: 'europe', gender: 'men', league: 'all' };
-  let loadedMatches = [];
+  const teamDictionary = { "LA Galaxy": "LAギャラクシー", "Inter Miami": "インテル・マイアミ" };
 
-  const leagueOptions = {
-    europe: { men: [{val:'all',text:'リーグ検索'},{val:'premier',text:'プレミアリーグ'},{val:'laliga',text:'ラ・リーガ'}], women: [{val:'all',text:'リーグ検索'}] },
-    japan: { men: [{val:'all',text:'リーグ検索'}], women: [{val:'all',text:'リーグ検索'}] },
-    mideast: [{val:'all',text:'リーグ検索'},{val:'saudi',text:'サウジリーグ'}],
-    america: { men: [{val:'all',text:'リーグ検索'},{val:'mls',text:'MLS'}], women: [{val:'all',text:'リーグ検索'},{val:'mls',text:'MLS'}] }
-  };
-
-  const teamDictionary = {
-    "LA Galaxy": "LAギャラクシー", "Inter Miami CF": "インテル・マイアミ", "Inter Miami": "インテル・マイアミ"
-  };
-
-  function translateTeam(name) { return teamDictionary[name.trim()] || name.trim(); }
-
-  const matches = [
-    { tab: 'europe', gender: 'men', league: 'premier', kickoff: '2026-05-28T18:00:00', isJapan: true, playerName: '鎌田 大地', badge: 'プレミア', badgeColor: '#3b82f6', home: 'クリスタルパレス', away: 'ラージョ' },
-    { tab: 'america', gender: 'men', league: 'mls', kickoff: '2026-05-29T08:30:00', isJapan: true, playerName: '吉田 麻也', badge: 'MLS', badgeColor: '#0284c7', home: 'LAギャラクシー', away: 'インテル・マイアミ' }
-  ];
-
-  function updateState(tab, updateHash = true) {
+  function updateState(tab) {
     state.tab = tab;
-    if (updateHash) window.history.pushState(null, '', '#' + tab);
-    state.gender = 'men';
+    state.gender = 'men'; // タブ切り替えで常に男子
+    document.querySelectorAll('.category-tabs button').forEach((b,i) => {
+        b.classList.toggle('active', ['europe','japan','match','mideast','america','youth'][i] === tab);
+    });
     document.getElementById('men').classList.add('active');
     document.getElementById('women').classList.remove('active');
     render();
@@ -137,13 +104,19 @@
   }
 
   function render() {
+    // 試合データレンダリング処理
     const area = document.getElementById('display-area');
-    area.innerHTML = ''; // 簡略化して描画処理を適用
-    // (実際のレンダリング処理は前回のコードと同様)
+    area.innerHTML = `<div class="date-header">26/05/29(金)</div>
+      <div class="match-card">
+        <div class="match-main">
+          <div class="match-time">08:30</div>
+          <div class="match-badge">MLS</div>
+          <div class="match-teams"><span>LAギャラクシー</span><span class="vs">vs</span><span>インテル・マイアミ</span></div>
+        </div>
+      </div>`;
   }
-
-  // 初期読み込み
-  window.addEventListener('DOMContentLoaded', () => { render(); });
+  
+  window.addEventListener('DOMContentLoaded', () => render());
 </script>
 </body>
 </html>
