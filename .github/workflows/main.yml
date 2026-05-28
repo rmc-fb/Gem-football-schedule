@@ -1,8 +1,8 @@
 name: Update Schedule
 on:
   schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
+    - cron: '0 0 * * *' # 毎日日本時間午前9時に自動実行
+  workflow_dispatch:     # 手動実行ボタン用
 
 jobs:
   update-data:
@@ -15,8 +15,9 @@ jobs:
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: |
+          # APIから直接データを取得
           curl --request GET \
-            --url 'https://sofascore.p.rapidapi.com/tournaments/get-scheduled-events?categoryId=1' \
+            --url 'https://sofascore.p.rapidapi.com/tournaments/get-live-events?sport=football' \
             --header 'x-rapidapi-host: sofascore.p.rapidapi.com' \
             --header "x-rapidapi-key: $RAPIDAPI_KEY" \
             -o schedule.json
