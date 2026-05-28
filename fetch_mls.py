@@ -8,17 +8,18 @@ import sys
 os.makedirs('data', exist_ok=True)
 
 # API設定
+# .strip() を追加して、前後の不要な改行や空白を削除します！
 api_key = os.getenv('RAPIDAPI_KEY')
 if not api_key:
     print("Error: RAPIDAPI_KEY is not set.")
     sys.exit(1)
+api_key = api_key.strip() 
 
 # APIエンドポイント
 url = "https://api.sofascore.com/api/v1/tournaments/get-next-matches"
-# RapidAPIのヘッダー情報（必ずRapidAPIのサイトで確認してください）
 headers = {
     'x-rapidapi-key': api_key,
-    'x-rapidapi-host': 'api.sofascore.com' # ここはAPIのホスト名に合わせてください
+    'x-rapidapi-host': 'api.sofascore.com'
 }
 params = {'tournamentId': '242', 'seasonId': '86668'}
 
