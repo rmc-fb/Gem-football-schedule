@@ -5,6 +5,10 @@ on:
     - cron: '0 0 */14 * *'
   workflow_dispatch:
 
+# ★ここを追加：これがないと書き込み権限がありません
+permissions:
+  contents: write
+
 jobs:
   update-data:
     runs-on: ubuntu-latest
