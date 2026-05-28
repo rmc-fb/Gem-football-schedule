@@ -1,1 +1,1170 @@
-[]
+[
+  {
+    "date": "2026-07-16 23:30:00",
+    "match": "Montreal vs Toronto"
+  },
+  {
+    "date": "2026-07-17 00:30:00",
+    "match": "Chicago vs Vancouver"
+  },
+  {
+    "date": "2026-07-17 00:30:00",
+    "match": "Saint Louis City SC vs Kansas City"
+  },
+  {
+    "date": "2026-07-17 02:30:00",
+    "match": "Seattle vs Portland"
+  },
+  {
+    "date": "2026-07-18 00:00:00",
+    "match": "Nashville vs Atlanta"
+  },
+  {
+    "date": "2026-07-18 02:30:00",
+    "match": "LA Galaxy vs Los Angeles"
+  },
+  {
+    "date": "2026-07-22 23:30:00",
+    "match": "Cincinnati vs Vancouver"
+  },
+  {
+    "date": "2026-07-22 23:30:00",
+    "match": "Columbus vs New York City"
+  },
+  {
+    "date": "2026-07-22 23:30:00",
+    "match": "Miami vs Chicago"
+  },
+  {
+    "date": "2026-07-22 23:30:00",
+    "match": "New England vs Toronto"
+  },
+  {
+    "date": "2026-07-22 23:30:00",
+    "match": "Philadelphia vs New York"
+  },
+  {
+    "date": "2026-07-23 00:00:00",
+    "match": "Charlotte vs Atlanta"
+  },
+  {
+    "date": "2026-07-23 00:30:00",
+    "match": "Austin FC vs Seattle"
+  },
+  {
+    "date": "2026-07-23 00:30:00",
+    "match": "Houston vs DC United"
+  },
+  {
+    "date": "2026-07-23 00:30:00",
+    "match": "Kansas City vs Minnesota"
+  },
+  {
+    "date": "2026-07-23 00:30:00",
+    "match": "Nashville vs Montreal"
+  },
+  {
+    "date": "2026-07-23 01:30:00",
+    "match": "Colorado vs San Diego FC"
+  },
+  {
+    "date": "2026-07-23 02:30:00",
+    "match": "LA Galaxy vs Saint Louis City SC"
+  },
+  {
+    "date": "2026-07-23 02:30:00",
+    "match": "Los Angeles vs Salt Lake"
+  },
+  {
+    "date": "2026-07-23 02:30:00",
+    "match": "Portland vs Dallas"
+  },
+  {
+    "date": "2026-07-23 02:30:00",
+    "match": "San Jose vs Orlando"
+  },
+  {
+    "date": "2026-07-25 23:00:00",
+    "match": "Columbus vs Cincinnati"
+  },
+  {
+    "date": "2026-07-25 23:30:00",
+    "match": "DC United vs Toronto"
+  },
+  {
+    "date": "2026-07-25 23:30:00",
+    "match": "Montreal vs Miami"
+  },
+  {
+    "date": "2026-07-25 23:30:00",
+    "match": "New England vs Atlanta"
+  },
+  {
+    "date": "2026-07-25 23:30:00",
+    "match": "New York City vs Chicago"
+  },
+  {
+    "date": "2026-07-25 23:30:00",
+    "match": "New York vs Charlotte"
+  },
+  {
+    "date": "2026-07-25 23:30:00",
+    "match": "Orlando vs Nashville"
+  },
+  {
+    "date": "2026-07-25 23:30:00",
+    "match": "Philadelphia vs Seattle"
+  },
+  {
+    "date": "2026-07-26 00:30:00",
+    "match": "Houston vs Austin FC"
+  },
+  {
+    "date": "2026-07-26 00:30:00",
+    "match": "Minnesota vs Vancouver"
+  },
+  {
+    "date": "2026-07-26 00:30:00",
+    "match": "Saint Louis City SC vs Colorado"
+  },
+  {
+    "date": "2026-07-26 01:30:00",
+    "match": "San Diego FC vs Dallas"
+  },
+  {
+    "date": "2026-07-26 02:30:00",
+    "match": "Los Angeles vs Kansas City"
+  },
+  {
+    "date": "2026-07-26 02:30:00",
+    "match": "Portland vs Salt Lake"
+  },
+  {
+    "date": "2026-07-26 02:30:00",
+    "match": "San Jose vs LA Galaxy"
+  },
+  {
+    "date": "2026-07-31 23:30:00",
+    "match": "New York City vs Toronto"
+  },
+  {
+    "date": "2026-08-01 23:30:00",
+    "match": "Cincinnati vs San Jose"
+  },
+  {
+    "date": "2026-08-01 23:30:00",
+    "match": "DC United vs Nashville"
+  },
+  {
+    "date": "2026-08-01 23:30:00",
+    "match": "Miami vs Columbus"
+  },
+  {
+    "date": "2026-08-01 23:30:00",
+    "match": "Montreal vs New England"
+  },
+  {
+    "date": "2026-08-01 23:30:00",
+    "match": "New York vs Orlando"
+  },
+  {
+    "date": "2026-08-01 23:30:00",
+    "match": "Philadelphia vs Atlanta"
+  },
+  {
+    "date": "2026-08-01 23:30:00",
+    "match": "Vancouver vs Los Angeles"
+  },
+  {
+    "date": "2026-08-02 00:30:00",
+    "match": "Chicago vs Charlotte"
+  },
+  {
+    "date": "2026-08-02 00:30:00",
+    "match": "Kansas City vs Houston"
+  },
+  {
+    "date": "2026-08-02 00:30:00",
+    "match": "Minnesota vs San Diego FC"
+  },
+  {
+    "date": "2026-08-02 00:30:00",
+    "match": "Saint Louis City SC vs Salt Lake"
+  },
+  {
+    "date": "2026-08-02 01:30:00",
+    "match": "Colorado vs Austin FC"
+  },
+  {
+    "date": "2026-08-02 02:30:00",
+    "match": "LA Galaxy vs Dallas"
+  },
+  {
+    "date": "2026-08-02 02:30:00",
+    "match": "Portland vs Seattle"
+  },
+  {
+    "date": "2026-08-08 20:30:00",
+    "match": "New England vs Houston"
+  },
+  {
+    "date": "2026-08-15 23:30:00",
+    "match": "Atlanta vs New York"
+  },
+  {
+    "date": "2026-08-15 23:30:00",
+    "match": "Charlotte vs Columbus"
+  },
+  {
+    "date": "2026-08-15 23:30:00",
+    "match": "Montreal vs DC United"
+  },
+  {
+    "date": "2026-08-15 23:30:00",
+    "match": "Orlando vs Cincinnati"
+  },
+  {
+    "date": "2026-08-15 23:30:00",
+    "match": "Toronto vs New England"
+  },
+  {
+    "date": "2026-08-16 00:30:00",
+    "match": "Austin FC vs Dallas"
+  },
+  {
+    "date": "2026-08-16 00:30:00",
+    "match": "Houston vs LA Galaxy"
+  },
+  {
+    "date": "2026-08-16 00:30:00",
+    "match": "Nashville vs Miami"
+  },
+  {
+    "date": "2026-08-16 01:30:00",
+    "match": "Colorado vs Kansas City"
+  },
+  {
+    "date": "2026-08-16 01:30:00",
+    "match": "Salt Lake vs Minnesota"
+  },
+  {
+    "date": "2026-08-16 02:30:00",
+    "match": "Los Angeles vs San Diego FC"
+  },
+  {
+    "date": "2026-08-16 02:30:00",
+    "match": "San Jose vs Saint Louis City SC"
+  },
+  {
+    "date": "2026-08-16 22:30:00",
+    "match": "Chicago vs Portland"
+  },
+  {
+    "date": "2026-08-16 22:30:00",
+    "match": "New York City vs Philadelphia"
+  },
+  {
+    "date": "2026-08-17 01:00:00",
+    "match": "Seattle vs Vancouver"
+  },
+  {
+    "date": "2026-08-19 23:30:00",
+    "match": "Cincinnati vs New York City"
+  },
+  {
+    "date": "2026-08-19 23:30:00",
+    "match": "Columbus vs Montreal"
+  },
+  {
+    "date": "2026-08-19 23:30:00",
+    "match": "DC United vs New England"
+  },
+  {
+    "date": "2026-08-19 23:30:00",
+    "match": "New York vs Nashville"
+  },
+  {
+    "date": "2026-08-19 23:30:00",
+    "match": "Orlando vs Chicago"
+  },
+  {
+    "date": "2026-08-19 23:30:00",
+    "match": "Philadelphia vs Miami"
+  },
+  {
+    "date": "2026-08-19 23:30:00",
+    "match": "Toronto vs Charlotte"
+  },
+  {
+    "date": "2026-08-20 00:00:00",
+    "match": "Kansas City vs Saint Louis City SC"
+  },
+  {
+    "date": "2026-08-20 00:30:00",
+    "match": "Minnesota vs Atlanta"
+  },
+  {
+    "date": "2026-08-20 01:30:00",
+    "match": "Colorado vs Los Angeles"
+  },
+  {
+    "date": "2026-08-20 01:30:00",
+    "match": "Salt Lake vs Dallas"
+  },
+  {
+    "date": "2026-08-20 01:30:00",
+    "match": "Seattle vs Austin FC"
+  },
+  {
+    "date": "2026-08-20 02:30:00",
+    "match": "LA Galaxy vs San Jose"
+  },
+  {
+    "date": "2026-08-20 02:30:00",
+    "match": "Portland vs San Diego FC"
+  },
+  {
+    "date": "2026-08-20 02:30:00",
+    "match": "Vancouver vs Houston"
+  },
+  {
+    "date": "2026-08-22 23:30:00",
+    "match": "Charlotte vs DC United"
+  },
+  {
+    "date": "2026-08-22 23:30:00",
+    "match": "Cincinnati vs Seattle"
+  },
+  {
+    "date": "2026-08-22 23:30:00",
+    "match": "Miami vs Toronto"
+  },
+  {
+    "date": "2026-08-22 23:30:00",
+    "match": "Montreal vs LA Galaxy"
+  },
+  {
+    "date": "2026-08-22 23:30:00",
+    "match": "New York vs Chicago"
+  },
+  {
+    "date": "2026-08-22 23:30:00",
+    "match": "Orlando vs Salt Lake"
+  },
+  {
+    "date": "2026-08-23 00:30:00",
+    "match": "Austin FC vs Philadelphia"
+  },
+  {
+    "date": "2026-08-23 00:30:00",
+    "match": "Nashville vs Columbus"
+  },
+  {
+    "date": "2026-08-23 00:30:00",
+    "match": "Saint Louis City SC vs Houston"
+  },
+  {
+    "date": "2026-08-23 01:30:00",
+    "match": "Vancouver vs Dallas"
+  },
+  {
+    "date": "2026-08-23 02:30:00",
+    "match": "Los Angeles vs Portland"
+  },
+  {
+    "date": "2026-08-23 02:30:00",
+    "match": "San Diego FC vs Colorado"
+  },
+  {
+    "date": "2026-08-23 02:30:00",
+    "match": "San Jose vs Minnesota"
+  },
+  {
+    "date": "2026-08-23 20:30:00",
+    "match": "New England vs New York City"
+  },
+  {
+    "date": "2026-08-23 23:00:00",
+    "match": "Atlanta vs Kansas City"
+  },
+  {
+    "date": "2026-08-29 20:30:00",
+    "match": "Seattle vs Chicago"
+  },
+  {
+    "date": "2026-08-29 23:30:00",
+    "match": "Atlanta vs Charlotte"
+  },
+  {
+    "date": "2026-08-29 23:30:00",
+    "match": "Columbus vs New England"
+  },
+  {
+    "date": "2026-08-29 23:30:00",
+    "match": "DC United vs Los Angeles"
+  },
+  {
+    "date": "2026-08-29 23:30:00",
+    "match": "Miami vs Montreal"
+  },
+  {
+    "date": "2026-08-29 23:30:00",
+    "match": "New York vs Philadelphia"
+  },
+  {
+    "date": "2026-08-29 23:30:00",
+    "match": "Toronto vs New York City"
+  },
+  {
+    "date": "2026-08-30 00:30:00",
+    "match": "Houston vs San Jose"
+  },
+  {
+    "date": "2026-08-30 00:30:00",
+    "match": "Kansas City vs Vancouver"
+  },
+  {
+    "date": "2026-08-30 00:30:00",
+    "match": "Minnesota vs Orlando"
+  },
+  {
+    "date": "2026-08-30 00:30:00",
+    "match": "Nashville vs Cincinnati"
+  },
+  {
+    "date": "2026-08-30 01:30:00",
+    "match": "Colorado vs Salt Lake"
+  },
+  {
+    "date": "2026-08-30 02:30:00",
+    "match": "Portland vs Austin FC"
+  },
+  {
+    "date": "2026-08-30 02:30:00",
+    "match": "San Diego FC vs LA Galaxy"
+  },
+  {
+    "date": "2026-08-30 23:00:00",
+    "match": "Saint Louis City SC vs Dallas"
+  },
+  {
+    "date": "2026-09-04 23:30:00",
+    "match": "New York City vs Nashville"
+  },
+  {
+    "date": "2026-09-05 23:30:00",
+    "match": "Charlotte vs Houston"
+  },
+  {
+    "date": "2026-09-05 23:30:00",
+    "match": "Cincinnati vs DC United"
+  },
+  {
+    "date": "2026-09-05 23:30:00",
+    "match": "Columbus vs Colorado"
+  },
+  {
+    "date": "2026-09-05 23:30:00",
+    "match": "Miami vs Atlanta"
+  },
+  {
+    "date": "2026-09-05 23:30:00",
+    "match": "Orlando vs San Diego FC"
+  },
+  {
+    "date": "2026-09-05 23:30:00",
+    "match": "Philadelphia vs Montreal"
+  },
+  {
+    "date": "2026-09-05 23:30:00",
+    "match": "Toronto vs Chicago"
+  },
+  {
+    "date": "2026-09-06 00:30:00",
+    "match": "Austin FC vs San Jose"
+  },
+  {
+    "date": "2026-09-06 00:30:00",
+    "match": "Dallas vs Kansas City"
+  },
+  {
+    "date": "2026-09-06 00:30:00",
+    "match": "Seattle vs New York"
+  },
+  {
+    "date": "2026-09-06 01:30:00",
+    "match": "LA Galaxy vs New England"
+  },
+  {
+    "date": "2026-09-06 01:30:00",
+    "match": "Salt Lake vs Los Angeles"
+  },
+  {
+    "date": "2026-09-06 02:30:00",
+    "match": "Portland vs Minnesota"
+  },
+  {
+    "date": "2026-09-06 02:30:00",
+    "match": "Vancouver vs Saint Louis City SC"
+  },
+  {
+    "date": "2026-09-09 23:30:00",
+    "match": "Atlanta vs Orlando"
+  },
+  {
+    "date": "2026-09-09 23:30:00",
+    "match": "DC United vs Columbus"
+  },
+  {
+    "date": "2026-09-09 23:30:00",
+    "match": "Montreal vs Charlotte"
+  },
+  {
+    "date": "2026-09-09 23:30:00",
+    "match": "New York City vs New England"
+  },
+  {
+    "date": "2026-09-09 23:30:00",
+    "match": "Philadelphia vs Cincinnati"
+  },
+  {
+    "date": "2026-09-09 23:30:00",
+    "match": "Toronto vs Nashville"
+  },
+  {
+    "date": "2026-09-10 00:30:00",
+    "match": "Austin FC vs Colorado"
+  },
+  {
+    "date": "2026-09-10 00:30:00",
+    "match": "Chicago vs Miami"
+  },
+  {
+    "date": "2026-09-10 00:30:00",
+    "match": "Houston vs Salt Lake"
+  },
+  {
+    "date": "2026-09-10 00:30:00",
+    "match": "Minnesota vs Dallas"
+  },
+  {
+    "date": "2026-09-10 02:30:00",
+    "match": "Los Angeles vs New York"
+  },
+  {
+    "date": "2026-09-10 02:30:00",
+    "match": "Portland vs Saint Louis City SC"
+  },
+  {
+    "date": "2026-09-10 02:30:00",
+    "match": "San Diego FC vs San Jose"
+  },
+  {
+    "date": "2026-09-10 02:30:00",
+    "match": "Seattle vs Kansas City"
+  },
+  {
+    "date": "2026-09-10 02:30:00",
+    "match": "Vancouver vs LA Galaxy"
+  },
+  {
+    "date": "2026-09-12 23:30:00",
+    "match": "Orlando vs Toronto"
+  },
+  {
+    "date": "2026-09-12 23:30:00",
+    "match": "Cincinnati vs Charlotte"
+  },
+  {
+    "date": "2026-09-12 23:30:00",
+    "match": "Columbus vs New York"
+  },
+  {
+    "date": "2026-09-12 23:30:00",
+    "match": "DC United vs Atlanta"
+  },
+  {
+    "date": "2026-09-12 23:30:00",
+    "match": "Miami vs Nashville"
+  },
+  {
+    "date": "2026-09-13 00:30:00",
+    "match": "Dallas vs Portland"
+  },
+  {
+    "date": "2026-09-13 00:30:00",
+    "match": "Kansas City vs Los Angeles"
+  },
+  {
+    "date": "2026-09-13 00:30:00",
+    "match": "Saint Louis City SC vs Minnesota"
+  },
+  {
+    "date": "2026-09-13 01:30:00",
+    "match": "Colorado vs Montreal"
+  },
+  {
+    "date": "2026-09-13 01:30:00",
+    "match": "Salt Lake vs New York City"
+  },
+  {
+    "date": "2026-09-13 02:30:00",
+    "match": "LA Galaxy vs Seattle"
+  },
+  {
+    "date": "2026-09-13 02:30:00",
+    "match": "San Jose vs Houston"
+  },
+  {
+    "date": "2026-09-13 22:30:00",
+    "match": "Chicago vs New England"
+  },
+  {
+    "date": "2026-09-13 22:30:00",
+    "match": "Vancouver vs Austin FC"
+  },
+  {
+    "date": "2026-09-14 01:00:00",
+    "match": "San Diego FC vs Philadelphia"
+  },
+  {
+    "date": "2026-09-18 23:30:00",
+    "match": "New York City vs New York"
+  },
+  {
+    "date": "2026-09-19 23:30:00",
+    "match": "DC United vs Charlotte"
+  },
+  {
+    "date": "2026-09-19 23:30:00",
+    "match": "Montreal vs Columbus"
+  },
+  {
+    "date": "2026-09-19 23:30:00",
+    "match": "New England vs Orlando"
+  },
+  {
+    "date": "2026-09-19 23:30:00",
+    "match": "San Jose vs Los Angeles"
+  },
+  {
+    "date": "2026-09-20 00:30:00",
+    "match": "Dallas vs Austin FC"
+  },
+  {
+    "date": "2026-09-20 00:30:00",
+    "match": "Houston vs Cincinnati"
+  },
+  {
+    "date": "2026-09-20 00:30:00",
+    "match": "Kansas City vs Philadelphia"
+  },
+  {
+    "date": "2026-09-20 00:30:00",
+    "match": "Minnesota vs LA Galaxy"
+  },
+  {
+    "date": "2026-09-20 00:30:00",
+    "match": "Saint Louis City SC vs Toronto"
+  },
+  {
+    "date": "2026-09-20 01:30:00",
+    "match": "Colorado vs Seattle"
+  },
+  {
+    "date": "2026-09-20 01:30:00",
+    "match": "Nashville vs Chicago"
+  },
+  {
+    "date": "2026-09-20 01:30:00",
+    "match": "Salt Lake vs Vancouver"
+  },
+  {
+    "date": "2026-09-20 02:30:00",
+    "match": "Portland vs Atlanta"
+  },
+  {
+    "date": "2026-09-20 23:00:00",
+    "match": "Miami vs San Diego FC"
+  },
+  {
+    "date": "2026-09-24 01:30:00",
+    "match": "Seattle vs Salt Lake"
+  },
+  {
+    "date": "2026-09-26 23:30:00",
+    "match": "Atlanta vs New York City"
+  },
+  {
+    "date": "2026-09-26 23:30:00",
+    "match": "Charlotte vs Chicago"
+  },
+  {
+    "date": "2026-09-26 23:30:00",
+    "match": "Montreal vs Cincinnati"
+  },
+  {
+    "date": "2026-09-26 23:30:00",
+    "match": "New York vs Saint Louis City SC"
+  },
+  {
+    "date": "2026-09-26 23:30:00",
+    "match": "Philadelphia vs Orlando"
+  },
+  {
+    "date": "2026-09-27 00:30:00",
+    "match": "Austin FC vs San Diego FC"
+  },
+  {
+    "date": "2026-09-27 00:30:00",
+    "match": "Dallas vs Los Angeles"
+  },
+  {
+    "date": "2026-09-27 00:30:00",
+    "match": "Houston vs Kansas City"
+  },
+  {
+    "date": "2026-09-27 00:30:00",
+    "match": "Nashville vs Toronto"
+  },
+  {
+    "date": "2026-09-27 00:30:00",
+    "match": "Seattle vs Minnesota"
+  },
+  {
+    "date": "2026-09-27 01:30:00",
+    "match": "Salt Lake vs New England"
+  },
+  {
+    "date": "2026-09-27 02:30:00",
+    "match": "LA Galaxy vs Colorado"
+  },
+  {
+    "date": "2026-09-27 02:30:00",
+    "match": "San Jose vs Portland"
+  },
+  {
+    "date": "2026-09-27 02:30:00",
+    "match": "Vancouver vs DC United"
+  },
+  {
+    "date": "2026-09-27 23:00:00",
+    "match": "Columbus vs Miami"
+  },
+  {
+    "date": "2026-10-10 18:30:00",
+    "match": "Chicago vs New York City"
+  },
+  {
+    "date": "2026-10-10 20:00:00",
+    "match": "Toronto vs Montreal"
+  },
+  {
+    "date": "2026-10-10 23:30:00",
+    "match": "Atlanta vs Cincinnati"
+  },
+  {
+    "date": "2026-10-10 23:30:00",
+    "match": "Charlotte vs Dallas"
+  },
+  {
+    "date": "2026-10-10 23:30:00",
+    "match": "Miami vs DC United"
+  },
+  {
+    "date": "2026-10-10 23:30:00",
+    "match": "New England vs Seattle"
+  },
+  {
+    "date": "2026-10-10 23:30:00",
+    "match": "New York vs San Diego FC"
+  },
+  {
+    "date": "2026-10-10 23:30:00",
+    "match": "Orlando vs Columbus"
+  },
+  {
+    "date": "2026-10-10 23:30:00",
+    "match": "Philadelphia vs Salt Lake"
+  },
+  {
+    "date": "2026-10-11 00:30:00",
+    "match": "Austin FC vs Nashville"
+  },
+  {
+    "date": "2026-10-11 00:30:00",
+    "match": "Kansas City vs Portland"
+  },
+  {
+    "date": "2026-10-11 00:30:00",
+    "match": "Minnesota vs Houston"
+  },
+  {
+    "date": "2026-10-11 01:30:00",
+    "match": "Colorado vs San Jose"
+  },
+  {
+    "date": "2026-10-11 02:30:00",
+    "match": "Los Angeles vs Vancouver"
+  },
+  {
+    "date": "2026-10-11 23:00:00",
+    "match": "Saint Louis City SC vs LA Galaxy"
+  },
+  {
+    "date": "2026-10-14 23:30:00",
+    "match": "Cincinnati vs New England"
+  },
+  {
+    "date": "2026-10-14 23:30:00",
+    "match": "Columbus vs Charlotte"
+  },
+  {
+    "date": "2026-10-14 23:30:00",
+    "match": "DC United vs New York"
+  },
+  {
+    "date": "2026-10-14 23:30:00",
+    "match": "Miami vs New York City"
+  },
+  {
+    "date": "2026-10-14 23:30:00",
+    "match": "Montreal vs Atlanta"
+  },
+  {
+    "date": "2026-10-14 23:30:00",
+    "match": "Toronto vs Orlando"
+  },
+  {
+    "date": "2026-10-15 00:30:00",
+    "match": "Chicago vs Philadelphia"
+  },
+  {
+    "date": "2026-10-15 00:30:00",
+    "match": "Dallas vs Seattle"
+  },
+  {
+    "date": "2026-10-15 00:30:00",
+    "match": "Nashville vs Kansas City"
+  },
+  {
+    "date": "2026-10-15 00:30:00",
+    "match": "Saint Louis City SC vs Vancouver"
+  },
+  {
+    "date": "2026-10-15 01:30:00",
+    "match": "Colorado vs Minnesota"
+  },
+  {
+    "date": "2026-10-15 01:30:00",
+    "match": "Salt Lake vs San Jose"
+  },
+  {
+    "date": "2026-10-15 02:30:00",
+    "match": "LA Galaxy vs Portland"
+  },
+  {
+    "date": "2026-10-15 02:30:00",
+    "match": "Los Angeles vs Austin FC"
+  },
+  {
+    "date": "2026-10-15 02:30:00",
+    "match": "San Diego FC vs Houston"
+  },
+  {
+    "date": "2026-10-17 18:30:00",
+    "match": "Philadelphia vs Charlotte"
+  },
+  {
+    "date": "2026-10-17 20:30:00",
+    "match": "Minnesota vs Saint Louis City SC"
+  },
+  {
+    "date": "2026-10-17 23:30:00",
+    "match": "Atlanta vs Miami"
+  },
+  {
+    "date": "2026-10-17 23:30:00",
+    "match": "New England vs Chicago"
+  },
+  {
+    "date": "2026-10-17 23:30:00",
+    "match": "New York vs Toronto"
+  },
+  {
+    "date": "2026-10-17 23:30:00",
+    "match": "Orlando vs DC United"
+  },
+  {
+    "date": "2026-10-18 00:30:00",
+    "match": "Austin FC vs Vancouver"
+  },
+  {
+    "date": "2026-10-18 00:30:00",
+    "match": "Houston vs Dallas"
+  },
+  {
+    "date": "2026-10-18 00:30:00",
+    "match": "Kansas City vs Salt Lake"
+  },
+  {
+    "date": "2026-10-18 02:30:00",
+    "match": "LA Galaxy vs San Diego FC"
+  },
+  {
+    "date": "2026-10-18 02:30:00",
+    "match": "Portland vs Colorado"
+  },
+  {
+    "date": "2026-10-18 02:30:00",
+    "match": "San Jose vs Nashville"
+  },
+  {
+    "date": "2026-10-18 02:30:00",
+    "match": "Seattle vs Montreal"
+  },
+  {
+    "date": "2026-10-18 23:00:00",
+    "match": "Cincinnati vs Columbus"
+  },
+  {
+    "date": "2026-10-24 18:30:00",
+    "match": "Columbus vs Toronto"
+  },
+  {
+    "date": "2026-10-24 20:00:00",
+    "match": "Montreal vs Nashville"
+  },
+  {
+    "date": "2026-10-24 20:30:00",
+    "match": "New York vs Miami"
+  },
+  {
+    "date": "2026-10-24 23:30:00",
+    "match": "Atlanta vs Chicago"
+  },
+  {
+    "date": "2026-10-24 23:30:00",
+    "match": "DC United vs Cincinnati"
+  },
+  {
+    "date": "2026-10-24 23:30:00",
+    "match": "Orlando vs New York City"
+  },
+  {
+    "date": "2026-10-24 23:30:00",
+    "match": "Philadelphia vs New England"
+  },
+  {
+    "date": "2026-10-25 00:30:00",
+    "match": "Dallas vs San Jose"
+  },
+  {
+    "date": "2026-10-25 00:30:00",
+    "match": "Houston vs Minnesota"
+  },
+  {
+    "date": "2026-10-25 00:30:00",
+    "match": "Kansas City vs Austin FC"
+  },
+  {
+    "date": "2026-10-25 01:30:00",
+    "match": "Colorado vs Vancouver"
+  },
+  {
+    "date": "2026-10-25 01:30:00",
+    "match": "Salt Lake vs Saint Louis City SC"
+  },
+  {
+    "date": "2026-10-25 02:30:00",
+    "match": "Portland vs Charlotte"
+  },
+  {
+    "date": "2026-10-25 02:30:00",
+    "match": "San Diego FC vs Seattle"
+  },
+  {
+    "date": "2026-10-26 01:00:00",
+    "match": "Los Angeles vs LA Galaxy"
+  },
+  {
+    "date": "2026-10-28 23:30:00",
+    "match": "Charlotte vs Montreal"
+  },
+  {
+    "date": "2026-10-28 23:30:00",
+    "match": "Miami vs Cincinnati"
+  },
+  {
+    "date": "2026-10-28 23:30:00",
+    "match": "New England vs New York"
+  },
+  {
+    "date": "2026-10-28 23:30:00",
+    "match": "New York City vs Atlanta"
+  },
+  {
+    "date": "2026-10-28 23:30:00",
+    "match": "Toronto vs DC United"
+  },
+  {
+    "date": "2026-10-29 00:30:00",
+    "match": "Austin FC vs Salt Lake"
+  },
+  {
+    "date": "2026-10-29 00:30:00",
+    "match": "Chicago vs Orlando"
+  },
+  {
+    "date": "2026-10-29 00:30:00",
+    "match": "Dallas vs Columbus"
+  },
+  {
+    "date": "2026-10-29 00:30:00",
+    "match": "Minnesota vs Kansas City"
+  },
+  {
+    "date": "2026-10-29 00:30:00",
+    "match": "Nashville vs Philadelphia"
+  },
+  {
+    "date": "2026-10-29 00:30:00",
+    "match": "Saint Louis City SC vs Portland"
+  },
+  {
+    "date": "2026-10-29 02:30:00",
+    "match": "San Jose vs Colorado"
+  },
+  {
+    "date": "2026-10-29 02:30:00",
+    "match": "Seattle vs Houston"
+  },
+  {
+    "date": "2026-10-29 02:30:00",
+    "match": "Vancouver vs San Diego FC"
+  },
+  {
+    "date": "2026-10-31 20:00:00",
+    "match": "Cincinnati vs Philadelphia"
+  },
+  {
+    "date": "2026-10-31 20:00:00",
+    "match": "Nashville vs New York"
+  },
+  {
+    "date": "2026-10-31 20:00:00",
+    "match": "Charlotte vs Orlando"
+  },
+  {
+    "date": "2026-10-31 20:00:00",
+    "match": "Columbus vs DC United"
+  },
+  {
+    "date": "2026-10-31 20:00:00",
+    "match": "New York City vs Montreal"
+  },
+  {
+    "date": "2026-11-01 20:00:00",
+    "match": "Kansas City vs Dallas"
+  },
+  {
+    "date": "2026-11-01 20:00:00",
+    "match": "Saint Louis City SC vs San Diego FC"
+  },
+  {
+    "date": "2026-11-01 20:00:00",
+    "match": "Colorado vs Chicago"
+  },
+  {
+    "date": "2026-11-01 20:00:00",
+    "match": "LA Galaxy vs Austin FC"
+  },
+  {
+    "date": "2026-11-01 20:00:00",
+    "match": "San Jose vs Salt Lake"
+  },
+  {
+    "date": "2026-11-01 20:00:00",
+    "match": "Vancouver vs Seattle"
+  },
+  {
+    "date": "2026-11-01 20:00:00",
+    "match": "Los Angeles vs Minnesota"
+  },
+  {
+    "date": "2026-11-01 20:30:00",
+    "match": "Atlanta vs Toronto"
+  },
+  {
+    "date": "2026-11-01 23:00:00",
+    "match": "New England vs Miami"
+  },
+  {
+    "date": "2026-11-02 02:00:00",
+    "match": "Portland vs Houston"
+  },
+  {
+    "date": "2026-11-05 00:30:00",
+    "match": "New York City vs Los Angeles"
+  },
+  {
+    "date": "2026-11-07 21:00:00",
+    "match": "Chicago vs Columbus"
+  },
+  {
+    "date": "2026-11-07 21:00:00",
+    "match": "Cincinnati vs Nashville"
+  },
+  {
+    "date": "2026-11-07 21:00:00",
+    "match": "DC United vs New York City"
+  },
+  {
+    "date": "2026-11-07 21:00:00",
+    "match": "Miami vs Charlotte"
+  },
+  {
+    "date": "2026-11-07 21:00:00",
+    "match": "Montreal vs Vancouver"
+  },
+  {
+    "date": "2026-11-07 21:00:00",
+    "match": "New York vs Atlanta"
+  },
+  {
+    "date": "2026-11-07 21:00:00",
+    "match": "Orlando vs New England"
+  },
+  {
+    "date": "2026-11-07 21:00:00",
+    "match": "Philadelphia vs Toronto"
+  },
+  {
+    "date": "2026-11-08 00:00:00",
+    "match": "Austin FC vs Portland"
+  },
+  {
+    "date": "2026-11-08 00:00:00",
+    "match": "Dallas vs Colorado"
+  },
+  {
+    "date": "2026-11-08 00:00:00",
+    "match": "Houston vs Saint Louis City SC"
+  },
+  {
+    "date": "2026-11-08 00:00:00",
+    "match": "Minnesota vs San Jose"
+  },
+  {
+    "date": "2026-11-08 00:00:00",
+    "match": "Salt Lake vs LA Galaxy"
+  },
+  {
+    "date": "2026-11-08 00:00:00",
+    "match": "San Diego FC vs Kansas City"
+  },
+  {
+    "date": "2026-11-08 00:00:00",
+    "match": "Seattle vs Los Angeles"
+  }
+]
