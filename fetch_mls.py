@@ -1,48 +1,64 @@
-import json
-import time
-import requests
 import os
-import sys
+import requests
+import json
 
-os.makedirs('data', exist_ok=True)
+# GitHubのSecretsからAPIキーを安全に読み込む
+API_KEY = os.environ.get("RAPIDAPI_KEY")
+API_HOST = "soccer-football-info.p.rapidapi.com"
 
-api_key = os.getenv('RAPIDAPI_KEY')
-if not api_key:
-    print("Error: RAPIDAPI_KEY is not set.")
-    sys.exit(1)
-api_key = api_key.strip() 
+if not API_KEY:
+    print("❌ エラー: RAPIDAPI_KEY が設定されていません。")
+    exit(1)
 
-url = "https://sofascore.p.rapidapi.com/teams/get-next-matches"
+url = "https://soccer-football-info.p.rapidapi.com/competition/matches/list/"
 headers = {
-    'x-rapidapi-key': api_key,
-    'x-rapidapi-host': 'sofascore.p.rapidapi.com',
-    'User-Agent': 'Mozilla/5.0'
+    "X-RapidAPI-Key": API_KEY,
+    "X-RapidAPI-Host": API_HOST
 }
-# ★ここを一旦 pageIndex=0 だけにしてシンプルに確認します
-params = {'teamId': '38', 'pageIndex': '0'}
 
-try:
-    response = requests.get(url, headers=headers, params=params)
-    response.raise_for_status()
-    data = response.json()
+all_match_dates = []
+page = 1
 
-    # ★ここが重要！何が返ってきているかログに出力します
-    print("--- APIから返ってきたデータの構造 ---")
-    print(json.dumps(data, indent=2, ensure_ascii=False)[:1000]) # 最初の1000文字だけ表示
-    print("---------------------------------")
+print("🚀 MLS全試合の「日時データ」取得を開始します...")
 
-    # 構造の確認：eventsキーがあるかチェック
-    events = data.get('events', [])
+while True:
+    print(f" ⏳ ページ {page} を取得中...")
+    querystring = {"competitionid": "1855", "paged": str(page)}
     
-    # ★フィルタリングのロジックが厳しすぎる可能性があるので、
-    # 一旦フィルタリングを外してデータをそのまま保存してみます（デバッグ用）
-    future_events = events 
+    try:
+        response = requests.get(url, headers=headers, params=querystring)
+        if response.status_code != 200:
+            print(f"❌ エラー status_code: {response.status_code}")
+            break
+            
+        data = response.json()
+        items = data.get("response", {}).get("items", [])
+        
+        if not items:
+            print("✨ 全ページのデータを読み込み終えました。")
+            break
+            
+        # 試合日時だけをシンプルに配列に追加
+        for match in items:
+            date_str = match.get("datestart")
+            if date_str:
+                all_match_dates.append(date_str)
+            
+        page += 1
+        
+    except Exception as e:
+        print(f"❌ 通信エラーが発生しました: {e}")
+        break
 
-    with open('data/schedule.json', 'w', encoding='utf-8') as f:
-        json.dump({'events': future_events}, f, indent=4, ensure_ascii=False)
-    
-    print(f"Successfully saved {len(future_events)} events.")
+# 日付の古い順（開幕戦〜最終戦）に並び替える
+all_match_dates.sort()
 
-except Exception as e:
-    print(f"Error occurred: {e}")
-    sys.exit(1)
+# dataフォルダの中に schedule.json として保存（上書き）
+output_file = "data/schedule.json"
+os.makedirs("data", exist_ok=True)
+
+with open(output_file, "w", encoding="utf-8") as f:
+    # 配列のままシンプルなJSONとして保存
+    json.dump(all_match_dates, f, ensure_ascii=False, indent=2)
+
+print(f"🎉 処理完了！合計 {len(all_match_dates)} 件の試合日時を {output_file} に保存しました。")
