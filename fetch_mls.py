@@ -2,8 +2,9 @@ import os
 import requests
 import json
 
-# GitHubのSecretsからAPIキーを安全に読み込む
-API_KEY = os.environ.get("RAPIDAPI_KEY")
+# GitHubのSecretsからAPIキーを安全に読み込み、前後の余計な改行や空白を自動で削除
+raw_key = os.environ.get("RAPIDAPI_KEY")
+API_KEY = raw_key.strip() if raw_key else None
 API_HOST = "soccer-football-info.p.rapidapi.com"
 
 if not API_KEY:
