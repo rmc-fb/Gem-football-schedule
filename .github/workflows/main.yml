@@ -5,7 +5,6 @@ on:
     - cron: '0 0 */14 * *'
   workflow_dispatch:
 
-# ★ここを追加：これがないと書き込み権限がありません
 permissions:
   contents: write
 
@@ -25,10 +24,11 @@ jobs:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: |
           python fetch_mls.py
+      # ★ここを修正しました
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data/schedule.json
-          git commit -m "Update MLS schedule"
-          git push
+          # 差分があるときだけコミットとプッシュを実行します
+          git diff --cached --quiet || (git commit -m "Update MLS schedule" && git push)
