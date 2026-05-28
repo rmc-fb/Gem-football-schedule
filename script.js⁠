@@ -1,58 +1,45 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const matchList = document.getElementById('match-list');
-    const updateDate = document.getElementById('update-date');
-
-    // 今日を入れる
-    const today = new Date();
-    if (updateDate) {
-        updateDate.textContent = today.toLocaleDateString('ja-JP', { month: '2-digit', day: '2-digit' }) + ' ' + today.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
-    }
-
-    const dummyData = {
-        'europe': [
-            { time: '21:00', league: 'プレミア', home: 'アーセナル', away: 'マンチェスター・C' },
-            { time: '23:30', league: 'ラ・リーガ', home: 'レアル・マドリード', away: 'バルセロナ' }
-        ],
-        'japanese': [
-            { time: '20:00', league: 'プレミア', home: 'ブライトン (三笘)', away: 'リヴァプール (遠藤)' },
-            { time: '22:30', league: 'ブンデス', home: 'フライブルク (堂安)', away: 'バイエルン' }
-        ],
-        'national': [
-            { time: '19:30', league: 'W杯予選', home: '日本代表', away: 'オーストラリア' }
-        ]
-    };
-
-    function renderMatches(tabId) {
-        if (!matchList) return;
-        matchList.innerHTML = '';
-        const matches = dummyData[tabId] || [];
-
-        if (matches.length === 0) {
-            matchList.innerHTML = '<div style="text-align: center; padding: 20px; color: #94a3b8;">試合予定はありません。</div>';
-            return;
+// schedule.jsonからデータを読み込んで表示する
+async function loadAndDisplayMatches() {
+    try {
+        // 同じ階層にあるschedule.jsonを読み込む
+        const response = await fetch('./schedule.json');
+        
+        if (!response.ok) {
+            throw new Error('データの読み込みに失敗しました');
         }
 
-        matches.forEach(match => {
-            const card = document.createElement('div');
-            card.style.cssText = 'background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between;';
-            card.innerHTML = `
-                <div style="color: #38bdf8; font-weight: bold;">${match.time}</div>
-                <div>${match.home} vs ${match.away}</div>
-                <div style="color: #94a3b8; font-size: 0.8rem;">${match.league}</div>
-            `;
-            matchList.appendChild(card);
-        });
+        const data = await response.json();
+        const container = document.getElementById('schedule-list');
+        
+        // 念のため初期化
+        container.innerHTML = '';
+
+        // データが配列であることを確認してループ処理
+        if (Array.isArray(data)) {
+            data.forEach(match => {
+                // 試合情報を取得（構造は取得データに合わせて適宜調整してください）
+                const home = match.homeTeam?.name || '不明';
+                const away = match.awayTeam?.name || '不明';
+                const date = match.startTimestamp ? new Date(match.startTimestamp * 1000).toLocaleString() : '日時未定';
+                
+                // HTMLを作成して追加
+                const matchEl = document.createElement('div');
+                matchEl.className = 'match-card';
+                matchEl.innerHTML = `
+                    <h3>${home} vs ${away}</h3>
+                    <p>キックオフ: ${date}</p>
+                `;
+                container.appendChild(matchEl);
+            });
+        } else {
+            container.innerHTML = '<p>試合データが見つかりませんでした。</p>';
+        }
+
+    } catch (error) {
+        console.error("エラー:", error);
+        document.getElementById('schedule-list').innerHTML = '<p>データの表示に失敗しました。</p>';
     }
+}
 
-    renderMatches('europe');
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            tabBtns.forEach(b => b.classList.remove('active'));
-            e.target.classList.add('active');
-            const tabId = e.target.getAttribute('data-tab');
-            renderMatches(tabId);
-        });
-    });
-});
+// ページ読み込み時に実行
+document.addEventListener('DOMContentLoaded', loadAndDisplayMatches);
