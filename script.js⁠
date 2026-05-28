@@ -1,33 +1,44 @@
-// schedule.jsonからデータを読み込んで表示する
 async function loadAndDisplayMatches() {
     try {
-        // 同じ階層にあるschedule.jsonを読み込む
-        const response = await fetch('./schedule.json');
-        
-        if (!response.ok) {
+        // 試合データと選手データを並列で取得（高速化のため Promise.all を使用）
+        const [matchRes, playerRes] = await Promise.all([
+            fetch('./data/schedule.json'),
+            fetch('./data/players.json')
+        ]);
+
+        if (!matchRes.ok || !playerRes.ok) {
             throw new Error('データの読み込みに失敗しました');
         }
 
-        const data = await response.json();
-        const container = document.getElementById('schedule-list');
+        const matches = await matchRes.json();
+        const players = await playerRes.json(); // [{name: "三笘 薫", team: "Brighton"}, ...]
         
-        // 念のため初期化
+        const container = document.getElementById('schedule-list');
         container.innerHTML = '';
 
-        // データが配列であることを確認してループ処理
-        if (Array.isArray(data)) {
-            data.forEach(match => {
-                // 試合情報を取得（構造は取得データに合わせて適宜調整してください）
+        if (Array.isArray(matches)) {
+            matches.forEach(match => {
                 const home = match.homeTeam?.name || '不明';
                 const away = match.awayTeam?.name || '不明';
+                
+                // 選手のマッチング処理
+                // ホームかアウェイのチーム名が、選手リストのteamと一致するか探す
+                const foundPlayer = players.find(p => p.team === home || p.team === away);
+                
                 const date = match.startTimestamp ? new Date(match.startTimestamp * 1000).toLocaleString() : '日時未定';
                 
-                // HTMLを作成して追加
                 const matchEl = document.createElement('div');
                 matchEl.className = 'match-card';
+                
+                // 選手バッジのHTMLを作成（見つかった場合のみ）
+                const playerBadge = foundPlayer 
+                    ? `<div class="player-badge">${foundPlayer.name}</div>` 
+                    : '';
+                
                 matchEl.innerHTML = `
                     <h3>${home} vs ${away}</h3>
                     <p>キックオフ: ${date}</p>
+                    ${playerBadge}
                 `;
                 container.appendChild(matchEl);
             });
@@ -40,6 +51,3 @@ async function loadAndDisplayMatches() {
         document.getElementById('schedule-list').innerHTML = '<p>データの表示に失敗しました。</p>';
     }
 }
-
-// ページ読み込み時に実行
-document.addEventListener('DOMContentLoaded', loadAndDisplayMatches);
