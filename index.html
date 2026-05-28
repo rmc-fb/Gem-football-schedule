@@ -2,78 +2,214 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>サッカー試合日程</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サッカー日程ナビ</title>
   <style>
-    /* 既存のスタイルはそのまま維持してください */
-    /* タイトルリンクのデフォルト下線を消すためのスタイルのみ追加 */
+    /* 全体の基本デザイン */
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+    header {
+      background-color: #1b4332; /* サッカー感のある深い緑 */
+      padding: 15px 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    /* サイトタイトル（リンク） */
     .site-title a {
+      color: #ffffff;
       text-decoration: none;
-      color: inherit;
+      font-size: 24px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    /* カテゴリ選択タブ */
+    .category-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+    .category-tabs button {
+      flex: 1;
+      min-width: 100px;
+      padding: 12px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.2s;
+    }
+    .category-tabs button.active {
+      background-color: #2d6a4f;
+      color: #ffffff;
+      border-color: #2d6a4f;
+    }
+    /* 男女切り替えタブ */
+    #gender-tab-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    #gender-tab-container button {
+      padding: 8px 20px;
+      background-color: #e9ecef;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    #gender-tab-container button.active {
+      background-color: #495057;
+      color: #fff;
+    }
+    /* リーグ選択セレクトボックス */
+    #league-select-container {
+      margin-bottom: 20px;
+    }
+    #league-select-container select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      background-color: #fff;
+    }
+    /* 試合日程表示エリア */
+    .content-area {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      min-height: 200px;
     }
   </style>
 </head>
 <body>
 
-  <!-- 1. 最上部のサイトタイトル（クリックでトップへ） -->
+  <!-- 最上部のサイトタイトル（クリックでトップへ戻る） -->
   <header>
     <h1 class="site-title">
       <a href="https://rmc-fb.github.io/Gem-football-schedule">⚽️ サッカー日程ナビ</a>
     </h1>
   </header>
 
-  <!-- カテゴリ選択タブ（例） -->
-  <div class="category-tabs">
-    <button onclick="switchCategory('国内リーグ')">国内リーグ</button>
-    <button onclick="switchCategory('代表戦日程')">代表戦日程</button>
-    <button onclick="switchCategory('中東日程')">中東日程</button>
-    <button onclick="switchCategory('ユース代表')">ユース代表</button>
-  </div>
+  <div class="container">
+    <!-- カテゴリ選択タブ -->
+    <div class="category-tabs">
+      <button class="active" onclick="switchCategory('国内リーグ')">国内リーグ</button>
+      <button onclick="switchCategory('代表戦日程')">代表戦日程</button>
+      <button onclick="switchCategory('中東日程')">中東日程</button>
+      <button onclick="switchCategory('ユース代表')">ユース代表</button>
+    </div>
 
-  <--- 条件によって非表示にするエリア --->
-  
-  <!-- 2. 男女切り替えタブ -->
-  <div id="gender-tab-container">
-    <!-- 男女切り替えのUI要素 -->
-    <button>男子</button>
-    <button>女子</button>
-  </div>
+    <!-- 男女切り替えタブ（JavaScriptで表示・非表示を制御） -->
+    <div id="gender-tab-container">
+      <button class="active" onclick="switchGender('men')">男子</button>
+      <button onclick="switchGender('women')">女子</button>
+    </div>
 
-  <!-- 3. リーグ選択 -->
-  <div id="league-select-container">
-    <!-- リーグ選択のUI要素（セレクトボックスやボタンなど） -->
-    <select>
-      <option>J1リーグ</option>
-      <option>J2リーグ</option>
-    </select>
+    <!-- リーグ選択（JavaScriptで表示・非表示を制御） -->
+    <div id="league-select-container">
+      <select onchange="changeLeague(this.value)">
+        <option value="j1">J1リーグ</option>
+        <option value="j2">J2リーグ</option>
+        <option value="overseas">海外日本人所属リーグ</option>
+      </select>
+    </div>
+
+    <!-- 試合日程の表示エリア -->
+    <div class="content-area">
+      <h3 id="display-title">国内リーグ の日程</h3>
+      <p id="display-info">ここに選択されたカテゴリの試合スケジュールが表示されます。</p>
+    </div>
   </div>
 
   <script>
-    // カテゴリ切り替え時の表示・非表示ロジック
+    // 現在の選択状態を管理する変数
+    let currentCategory = '国内リーグ';
+    let currentGender = 'men';
+
+    // カテゴリ切り替え関数
     function switchCategory(category) {
+      currentCategory = category;
+      
+      // カテゴリボタンの「アクティブ状態（色）」を切り替え
+      const buttons = document.querySelectorAll('.category-tabs button');
+      buttons.forEach(btn => {
+        if (btn.innerText === category) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
       const genderTab = document.getElementById('gender-tab-container');
       const leagueSelect = document.getElementById('league-select-container');
 
-      // --- 男女切り替えタブの制御 ---
-      // 「中東日程」のときは不要（非表示）
+      // 【条件1】「中東日程」のときは男女切り替えタブを連動して隠す
       if (category === '中東日程') {
         genderTab.style.display = 'none';
       } else {
-        genderTab.style.display = 'block'; // 必要に応じて 'flex' などに変更してください
+        genderTab.style.display = 'flex';
       }
 
-      // --- リーグ選択の制御 ---
-      // 「代表戦日程」「中東日程」「ユース代表」のときは不要（非表示）
+      // 【条件2】「代表戦日程」「中東日程」「ユース代表」のときはリーグ選択を隠す
       if (category === '代表戦日程' || category === '中東日程' || category === 'ユース代表') {
         leagueSelect.style.display = 'none';
       } else {
         leagueSelect.style.display = 'block';
       }
 
-      // 実際のコンテンツ切り替え処理をここに記述
-      console.log(category + 'を表示します');
+      // 表示内容の更新（動作確認用）
+      updateDisplay();
     }
 
-    // 初期表示の挙動（必要に応じて初期カテゴリを設定してください）
+    // 男女タブ切り替え関数
+    function switchGender(gender) {
+      currentGender = gender;
+      const buttons = document.querySelectorAll('#gender-tab-container button');
+      if (gender === 'men') {
+        buttons[0].classList.add('active');
+        buttons[1].classList.remove('active');
+      } else {
+        buttons[0].classList.remove('active');
+        buttons[1].classList.add('active');
+      }
+      updateDisplay();
+    }
+
+    // リーグ変更時の関数
+    function changeLeague(val) {
+      const infoEl = document.getElementById('display-info');
+      infoEl.innerText = `選択されたリーグID: [${val}] の日程を読み込み中...`;
+    }
+
+    // 画面の文字を動的に変える処理（確認用）
+    function updateDisplay() {
+      const titleEl = document.getElementById('display-title');
+      const infoEl = document.getElementById('display-info');
+      
+      let genderText = (currentCategory !== '中東日程' && currentGender === 'women') ? '（女子）' : '';
+      titleEl.innerText = `${currentCategory}${genderText} の日程`;
+      infoEl.innerText = `${currentCategory}のスケジュール画面です。データと連携させて使ってください。`;
+    }
+
+    // 最初にページを開いたときは「国内リーグ」を選択状態にする
     switchCategory('国内リーグ');
   </script>
 </body>
