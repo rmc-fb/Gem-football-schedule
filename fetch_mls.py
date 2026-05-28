@@ -8,7 +8,6 @@ import sys
 os.makedirs('data', exist_ok=True)
 
 # API設定
-# .strip() を追加して、前後の不要な改行や空白を削除します！
 api_key = os.getenv('RAPIDAPI_KEY')
 if not api_key:
     print("Error: RAPIDAPI_KEY is not set.")
@@ -17,14 +16,23 @@ api_key = api_key.strip()
 
 # APIエンドポイント
 url = "https://api.sofascore.com/api/v1/tournaments/get-next-matches"
+
+# ★ここが重要：User-Agentを追加してブラウザからのアクセスを装います
 headers = {
     'x-rapidapi-key': api_key,
-    'x-rapidapi-host': 'api.sofascore.com'
+    'x-rapidapi-host': 'api.sofascore.com',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
 }
 params = {'tournamentId': '242', 'seasonId': '86668'}
 
 try:
     response = requests.get(url, headers=headers, params=params)
+    
+    # エラーの詳細を表示できるようにする
+    if response.status_code != 200:
+        print(f"Status Code: {response.status_code}")
+        print(f"Response Body: {response.text}")
+    
     response.raise_for_status()
     data = response.json()
 
@@ -39,5 +47,5 @@ try:
     print(f"Successfully saved {len(future_events)} matches.")
 
 except Exception as e:
-    print(f"Error: {e}")
+    print(f"Error occurred: {e}")
     sys.exit(1)
