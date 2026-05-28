@@ -1,23 +1,8 @@
-name: Update Schedule
-on:
-  schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
-
-jobs:
-  update-data:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v3
-      - name: Fetch and Save Data
+- name: Fetch and Save Data
+        env:
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: |
-          curl -f -o debug.json "https://api.apify.com/v2/datasets/MLNKE6KYAUDVA0QRM?token=${{ secrets.APIFY_TOKEN }}"
-      - name: Commit and Push
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add schedule.json
-          git commit -m "Update match schedule" || exit 0
-          git push
+          curl -L -f -o schedule.json \
+          -H "X-RapidAPI-Key: $RAPIDAPI_KEY" \
+          -H "X-RapidAPI-Host: sofascore5.p.rapidapi.com" \
+          "https://sofascore5.p.rapidapi.com/api/v1/unique-tournament/242/season/86668/events"
