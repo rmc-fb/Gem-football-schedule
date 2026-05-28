@@ -2,22 +2,31 @@ import os
 import requests
 import json
 
-# 設定
 API_KEY = os.environ.get("RAPIDAPI_KEY", "").strip()
 API_HOST = "api-football186.p.rapidapi.com"
 headers = {"x-rapidapi-host": API_HOST, "x-rapidapi-key": API_KEY}
 
-# 確認したいURL
 TARGET_CID = "1855"
 url = f"https://api-football186.p.rapidapi.com/competition/{TARGET_CID}/matches"
 
-print(f"🚀 取得開始: {url}")
-
-# リクエスト実行
 response = requests.get(url, headers=headers)
+data = response.json()
 
-# 結果を表示
-print("--- ステータスコード ---")
-print(response.status_code)
-print("--- レスポンスの中身 (最初の500文字) ---")
-print(response.text[:500])
+# 構造を解析： response -> items の中に試合リストがある
+items = data.get("response", {}).get("items", [])
+
+final_dates = []
+for match in items:
+    # 試合データの中に日付情報が入っているはずや
+    # ログを見ると 'result' などがあるので、もし日時キーがあれば抽出する
+    # ※APIのレスポンスに 'datestart' があればそれを使う
+    date = match.get("datestart")
+    if date:
+        final_dates.append(date)
+
+# 保存
+os.makedirs("data", exist_ok=True)
+with open("data/schedule.json", "w", encoding="utf-8") as f:
+    json.dump(final_dates, f, ensure_ascii=False, indent=2)
+
+print(f"🎉 完了！ {len(final_dates)} 件の試合日時を保存しました。")
