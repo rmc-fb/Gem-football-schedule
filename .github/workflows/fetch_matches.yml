@@ -1,24 +1,26 @@
-name: Fetch Player Data
+name: Fetch Matches Data
 
 on:
   workflow_dispatch: # 手動実行専用
-  schedule:
-    - cron: '0 0 1 * *' # 月に1回（毎月1日の深夜0時）に実行
 
 jobs:
-  update-players:
+  update-matches:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v4
         with: { python-version: '3.9' }
+      - name: Install requests
+        run: pip install requests
       - name: Run script
-        run: python fetch_players.py # 新しく作る選手取得スクリプト
+        run: python fetch_matches.py
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
       - name: Commit changes
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add data/players.json
-          git commit -m "Update player data" || exit 0
+          git add data/schedule.json
+          git commit -m "Update match schedule" || exit 0
           git push
