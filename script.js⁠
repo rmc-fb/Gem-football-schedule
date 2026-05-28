@@ -1,11 +1,11 @@
 async function loadAndDisplayMatches() {
     try {
-        // 試合データと選手データを並列で取得（高速化のため Promise.all を使用）
+        // 試合データと選手データを同時に読み込む
         const [matchRes, playerRes] = await Promise.all([
             fetch('./data/schedule.json'),
             fetch('./data/players.json')
         ]);
-
+        
         if (!matchRes.ok || !playerRes.ok) {
             throw new Error('データの読み込みに失敗しました');
         }
@@ -18,19 +18,20 @@ async function loadAndDisplayMatches() {
 
         if (Array.isArray(matches)) {
             matches.forEach(match => {
+                // football-data.orgの構造に合わせてチーム名を取得
                 const home = match.homeTeam?.name || '不明';
                 const away = match.awayTeam?.name || '不明';
                 
-                // 選手のマッチング処理
-                // ホームかアウェイのチーム名が、選手リストのteamと一致するか探す
+                // 選手リストの中に該当チームがあるか確認
                 const foundPlayer = players.find(p => p.team === home || p.team === away);
                 
-                const date = match.startTimestamp ? new Date(match.startTimestamp * 1000).toLocaleString() : '日時未定';
+                // 日時フォーマット
+                const date = match.utcDate ? new Date(match.utcDate).toLocaleString() : '日時未定';
                 
                 const matchEl = document.createElement('div');
                 matchEl.className = 'match-card';
                 
-                // 選手バッジのHTMLを作成（見つかった場合のみ）
+                // 選手が見つかった場合のみバッジHTMLを作成
                 const playerBadge = foundPlayer 
                     ? `<div class="player-badge">${foundPlayer.name}</div>` 
                     : '';
@@ -51,3 +52,5 @@ async function loadAndDisplayMatches() {
         document.getElementById('schedule-list').innerHTML = '<p>データの表示に失敗しました。</p>';
     }
 }
+
+document.addEventListener('DOMContentLoaded', loadAndDisplayMatches);
