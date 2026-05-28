@@ -14,21 +14,22 @@ if not api_key:
     sys.exit(1)
 api_key = api_key.strip() 
 
-# ★修正点：RapidAPIのゲートウェイURLに変更します
-url = "https://sofascore.p.rapidapi.com/api/v1/tournaments/get-next-matches"
+# ★修正点：見つけた正しいURLに更新しました
+url = "https://sofascore.p.rapidapi.com/teams/get-next-matches"
 
-# ★修正点：ヘッダーをRapidAPI用に合わせる
 headers = {
     'x-rapidapi-key': api_key,
     'x-rapidapi-host': 'sofascore.p.rapidapi.com',
     'User-Agent': 'Mozilla/5.0'
 }
-params = {'tournamentId': '242', 'seasonId': '86668'}
+
+# ★修正点：URLに含まれていたパラメータをこちらに移動
+params = {'teamId': '38', 'pageIndex': '0'}
 
 try:
     response = requests.get(url, headers=headers, params=params)
     
-    # デバッグ用にレスポンスを表示
+    # エラー時は詳細を表示
     if response.status_code != 200:
         print(f"Status Code: {response.status_code}")
         print(f"Response Body: {response.text}")
@@ -36,8 +37,10 @@ try:
     response.raise_for_status()
     data = response.json()
 
-    # 未来の試合のみ抽出
+    # 未来の試合のみ抽出（eventsキーがあるか確認してフィルタリング）
     now = time.time()
+    # 構造が変更されている可能性があるため、dataそのものを確認してください
+    # もし data に直接イベントが入っていれば data.get('events', []) を data に変更します
     future_events = [e for e in data.get('events', []) if e.get('startTimestamp', 0) > now]
 
     # JSON保存
