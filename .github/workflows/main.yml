@@ -12,12 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Fetch and Save Data
+        env:
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: |
-          # APIから直接データを取得（Futureの試合も含む）
+          # APIから直接データを取得
           curl -L -f -o schedule.json \
-          -H "X-RapidAPI-Key: YOUR_RAPIDAPI_KEY" \
-          -H "X-RapidAPI-Host: sofascore5.p.rapidapi.com" \
-          "https://sofascore5.p.rapidapi.com/api/v1/unique-tournament/242/season/86668/events"
+          -G "https://sofascore5.p.rapidapi.com/api/v1/unique-tournament/242/season/86668/events" \
+          -H "x-rapidapi-key: $RAPIDAPI_KEY" \
+          -H "x-rapidapi-host: sofascore5.p.rapidapi.com"
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
