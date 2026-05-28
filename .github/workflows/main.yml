@@ -15,10 +15,10 @@ jobs:
         run: |
           # ここにApifyのデータを取得するURLを入れる（後で設定します）
           curl "https://api.apify.com/v2/datasets/【ここにあなたのデータセットID】/items?token=【あなたのトークン】" > schedule.json
-      - name: Commit and Push
+　　　- name: Commit and Push
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add schedule.json
-          git commit -m "Update match schedule"
+          git commit -m "Update match schedule" || exit 0
           git push
