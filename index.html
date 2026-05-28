@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overseas Football Schedule</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <title>海外サッカー日程</title>
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -12,57 +12,26 @@
         <div class="header-container">
             <h1>⚽ OVERSEAS FOOTBALL SCHEDULE</h1>
             <p class="subtitle">海外サッカー 試合日程 — 日本人選手追跡</p>
-            <div class="update-time">更新: <strong id="update-date">—</strong><span class="auto-notice">自動取得</span></div>
+            <div class="update-time">更新: <strong id="update-date">—</strong> <span style="background: rgba(56,189,248,0.2); color: #38bdf8; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">自動取得</span></div>
         </div>
     </header>
 
     <main>
-        <section class="filter-section">
-            <div class="tabs-container">
-                <button class="tab-btn active" data-tab="europe">🌍 欧州日程</button>
-                <button class="tab-btn" data-tab="japanese">🇯🇵 日本人日程</button>
-                <button class="tab-btn" data-tab="national">🏆 代表戦日程</button>
-                <button class="tab-btn" data-tab="mid_east">🕌 中東日程</button>
-                <button class="tab-btn" data-tab="north_am">🌎 北米日程</button>
-                <button class="tab-btn" data-tab="youth">🌱 ユース代表</button>
-            </div>
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="europe">🌍 欧州日程</button>
+            <button class="tab-btn" data-tab="japanese">🇯🇵 日本人日程</button>
+            <button class="tab-btn" data-tab="national">🏆 代表戦日程</button>
+            <button class="tab-btn" data-tab="mid_east">🕌 中東日程</button>
+        </div>
 
-            <div class="controls-container">
-                <div class="control-group">
-                    <span class="control-label">カテゴリ</span>
-                    <div class="radio-buttons">
-                        <label class="radio-label"><input type="radio" name="category" value="men" checked> ♂ 男子</label>
-                        <label class="radio-label"><input type="radio" name="category" value="women"> ♀ 女子</label>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <span class="control-label">リーグ</span>
-                    <div class="select-wrapper">
-                        <select id="league-select">
-                            <option value="all">全 リーグ</option>
-                        </select>
-                    </div>
-                    <button class="reset-btn">リセット</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-section" id="match-list">
+        <div id="match-list">
             <div class="loading-state">
                 <div class="spinner"></div>
                 <p>データを読み込み中...</p>
             </div>
-        </section>
+        </div>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <p>&copy; 2026 海外サッカー日程 | データは参考情報です。</p>
-            <p class="credits">Powered by football-data.org + GitHub Actions + GitHub Pages</p>
-        </div>
-    </footer>
-
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
